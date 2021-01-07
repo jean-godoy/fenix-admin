@@ -13,11 +13,11 @@ export default props => {
     const [user, setUser] = useState([]);
 
     useEffect(() => {
-        api.get(`/user-id/${id_user}`).then(({ data }) => {
+        api.get(`/users/get-id/${id_user}`).then(({ data }) => {
             setUser(data);
         })
     }, []);
-    console.log(user)
+    
     return (
         <>
             <Menu />
@@ -47,26 +47,26 @@ export default props => {
 
                         <header>
                             <FiFolder className="box-body-icon" />
-                            <span> > Dados do Usuario: {user.user_name} </span>
+                            <span> > Dados do Usuario: {user.userName} </span>
                         </header>
 
                         <div className="box-data">
 
                             <div className="box-data-group">
                                 <span className="data-group-span">
-                                    <b>Nome: </b>{user.user_name}
+                                    <b>Nome: </b>{user.userName}
                                 </span>
                             </div>
 
                             <div className="box-data-group">
                                 <span className="data-group-span">
-                                    <b>E-mail: </b>{user.user_email}
+                                    <b>E-mail: </b>{user.userEmail}
                                 </span>
                             </div>
 
                             <div className="box-data-group">
                                 <span className="data-group-span">
-                                    <b>Senha: </b>{user.user_pass}
+                                    <b>Senha: </b>{user.userPass}
                                 </span>
                             </div>
 

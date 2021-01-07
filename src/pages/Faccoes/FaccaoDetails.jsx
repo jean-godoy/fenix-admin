@@ -20,7 +20,7 @@ export default props => {
     const [cpf, setCpf] = useState('');
 
     useEffect(() => {
-        api.get(`/faccao-id/${id}`).then(({ data }) => {
+        api.get(`/faccoes/get-id/${id}`).then(({ data }) => {
             setData(data);
             setCpf(mask(unMask(data.cpf), ['999.999.999-99']));
             setPhone(mask(unMask(data.phone), ['(99) 9999-9999', '(99) 9 9999-9999']));
@@ -58,14 +58,14 @@ export default props => {
 
                         <header>
                             <FiUsers className="box-body-icon" />
-                            <span> > Dados da Facção: {data.faccao_name}</span>
+                            <span> > Dados da Facção: {data.faccaoName}</span>
                         </header>
 
                         <div className="box-data">
 
                             <div className="box-data-group">
                                 <span className="data-group-span">
-                                    <b>Facção: </b>{data.faccao_name}
+                                    <b>Facção: </b>{data.faccaoName}
                                 </span>
                             </div>
 

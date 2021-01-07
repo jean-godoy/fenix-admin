@@ -1,25 +1,27 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { FiUsers } from 'react-icons/fi';
+import { Link, useHistory } from 'react-router-dom';
+import { FiUserPlus, FiUsers } from "react-icons/fi";
 import api from '../../api';
+
 
 //components
 import Menu from '../../components/Menu/Menu';
 import Header from '../../components/Header/Header';
+import DateFullIn from '../../components/Date/DateFullIn';
 
 export default props => {
 
     const [data, setData] = useState([]);
 
     useEffect(() => {
-        api.get('/employees').then(({ data }) => {
+        api.get('/romaneios').then(({data}) => {
             setData(data);
         }).catch(e => {
-            console.log(e);
+            return alert('Nenhum Romaneio Válido');
         });
-    }, []);
-
-    return(
+    },[]);
+    
+    return (
         <>
             <Menu />
             <div className="container">
@@ -28,35 +30,37 @@ export default props => {
 
                 <div className="box-main">
 
-                    <header>Funcionários</header>
+                    <header>Romaneios</header>
 
                     <nav className="box-nav">
                         <ul className="box-nav-ul">
 
                             <li className="box-nav-li">
-                                <Link className="box-nav-link" to="/employees">Funcionários</Link>
+                                <Link className="box-nav-link" to="/romaneios">Romaneios</Link>
                             </li>
 
                             <li className="box-nav-li">
-                                <Link className="box-nav-link" to="/Employee-add">Adicionar Funcionário</Link>
+                                <Link className="box-nav-link" to="/romaneio/expedicao">Expedição</Link>
                             </li>
 
                         </ul>
                     </nav>
 
                     <div className="box-body">
+
                         <header>
                             <FiUsers className="box-body-icon" />
-                            <span> > Selecione um Funcionário</span>
+                            <span> > Selecione um Romaneio</span>
                         </header>
 
                         <div className="box-list">
                             <ul className="box-list-ul">
                                 {data.length && data.map(item => {
+                                    // obs: os seria op, foi mudado durante o preceso
                                     return (
-                                        <li key={item.id_user} className="box-list-li">
-                                            <Link className="box-list-link" to={`/employee-details/${item.id}`} >
-                                                <span className="box-list-span"><b>Nome: </b>{item.employeeName} </span>
+                                        <li key={item.id} className={`box-list-li status-${item.status}`}>
+                                            <Link className="box-list-link" to={`/romaneio-expedicao/${item.os}`} >
+                                                <span className="box-list-span"><b>Romaneio O.P: </b>{item.os} </span>
                                             </Link>
                                         </li>
                                     )
@@ -66,10 +70,10 @@ export default props => {
 
                     </div>
 
-
                 </div>
 
             </div>
         </>
     );
- }
+
+}

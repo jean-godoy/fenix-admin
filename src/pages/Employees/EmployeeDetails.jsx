@@ -14,7 +14,7 @@ export default props => {
     const [data, setData] = useState([]);
 
     useEffect(() => {
-        api.get(`/employee-id/${id}`).then(({ data }) => {
+        api.get(`/employees/get-id/${id}`).then(({ data }) => {
             setData(data);
         }).catch(e => {
             return alert('Nenhum funcionário corresponde está id');
@@ -57,7 +57,7 @@ export default props => {
 
                             <div className="box-data-group">
                                 <span className="data-group-span">
-                                    <b>Nome: </b>{data.employee_name}
+                                    <b>Nome: </b>{data.employeeName}
                                 </span>
                             </div>
 
@@ -69,7 +69,7 @@ export default props => {
 
                             <div className="box-data-group">
                                 <span className="data-group-span">
-                                    <b>Endereço: </b>{data.address}
+                                    <b>Endereço: </b>{data.street}
                                 </span>
                             </div>
 
@@ -87,7 +87,7 @@ export default props => {
 
                             <div className="box-data-group">
                                 <span className="data-group-span">
-                                    <b>Data Nasc: </b>{data.birth_date}
+                                    <b>Data Nasc: </b>{data.birthDate}
                                 </span>
                             </div>
 
@@ -99,7 +99,7 @@ export default props => {
 
                             <div className="box-data-group">
                                 <span className="data-group-span">
-                                    <b>Estado: </b>{data.state}
+                                    <b>Estado: </b>{data.uf}
                                 </span>
                             </div>
 

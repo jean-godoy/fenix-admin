@@ -37,8 +37,7 @@ export default props => {
         };
         const data_string = JSON.stringify(data_values);
        
-        api.post('/user-add', data_string).then((res) => {
-            console.log(res);
+        api.post('/users/create', data_string).then((res) => {
             alert('Usuario cadastrado com sucesso!');
         }).catch(e => {
             alert('Erro ao cadastrar usuario, - '+e);

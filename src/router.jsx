@@ -44,6 +44,19 @@ import FaccaoDetails from './pages/Faccoes/FaccaoDetails';
 //checking
 import Cheking from './pages/Cheking/Checking';
 import CheckAdd from './pages/Cheking/CheckAdd';
+import CheckEdit from './pages/Cheking/CheckDetails';
+
+//Ordem Procudao
+import OrdemProducao from './pages/OrdemProducao/OrdemProducao';
+import OrdemProducaoAdd from './pages/OrdemProducao/OrdemProducaoAdd';
+import GradeAdd from './pages/OrdemProducao/AdinionarGrade';
+
+//Romaneios
+import Romaneios from './pages/Romaneios/Romaneios';
+import RomaneioExpedicao from './pages/Romaneios/RomaneioExpedicao';
+
+//Estoque
+import Estoque from './pages/Estoque/Estoque';
 
 //pdf convert
 import PDF from './pages/PDF/Pdf';
@@ -106,9 +119,24 @@ export default props => {
                     <PrivateRoute exact path="/faccao-add" component={FaccaoAdd} />
                     <PrivateRoute exact path="/faccao-details/:id" component={FaccaoDetails} />
 
+                    {/* Checking Router */}
                     <PrivateRoute exact path="/cheking" component={Cheking} />
                     <PrivateRoute exact path="/check-add" component={CheckAdd} />
-                    
+                    <PrivateRoute exact path="/check-edit/:id" component={CheckEdit} />
+
+                    {/* Ordem Producao Router */}
+                    <PrivateRoute exact path="/ordem-producao" component={OrdemProducao} />
+                    <PrivateRoute exact path="/ordem-producao-add/:id" component={OrdemProducaoAdd} />
+                    <PrivateRoute exact path="/grade-add/:id" component={GradeAdd} />
+
+                    {/* Romaneios Route */}
+                    <PrivateRoute exact path="/romaneios" component={Romaneios} />
+                    <PrivateRoute exact path="/romaneio/expedicao" component={RomaneioExpedicao} />
+                   
+
+                    {/* Estoque Route */}
+                    <PrivateRoute exact path="/estoque" component={Estoque} />
+
                 </Switch>
             </BrowserRouter>
 

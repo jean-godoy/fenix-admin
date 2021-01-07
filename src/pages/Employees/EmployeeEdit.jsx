@@ -55,14 +55,14 @@ export default props => {
 
        const data_values = {
             id_employee: id,
-            name: data.name,
+            employee_name: data.employee_name,
             phone: unMask(phone),
-            address: data.address,
+            street: data.street,
             cpf: unMask(cpf),
             rg: unMask(rg),
             birth_date: outDate,
             city: data.city,
-            state: data.state,
+            uf: data.uf,
             email: data.email,
             office: data.office,
             salary: unMask(number),
@@ -71,13 +71,14 @@ export default props => {
         }
 
         const data_string = JSON.stringify(data_values);
+        console.log(data_string)
 
-        api.post('/employee/add', data_string).then((res) =>{
-            alert('Funcionário Cadastrado Com Sucesso!!');
-        }).catch(e => {
-            console.log(e);
-            return alert('Erro ao Cadastrar Funcionário.. :(')
-        });
+        // api.post('/employee-add', data_string).then((res) =>{
+        //     alert('Funcionário Cadastrado Com Sucesso!!');
+        // }).catch(e => {
+        //     console.log(e);
+        //     return alert('Erro ao Cadastrar Funcionário.. :(')
+        // });
     };
 
     const dateChange = e => {
@@ -135,7 +136,7 @@ export default props => {
 
                             <div className="form-group">
                                 <label htmlFor=""><b>Nome Completo:</b></label>
-                                <input type="text" className="form-input" name="name" value={data.name} onChange={onChange} required />
+                                <input type="text" className="form-input" name="employee_name" value={data.employee_name} onChange={onChange} required />
                             </div>
 
                             <div className="form-group">
@@ -145,7 +146,7 @@ export default props => {
 
                             <div className="form-group">
                                 <label htmlFor=""><b>Endereço:</b></label>
-                                <input type="text" className="form-input" name="address" value={data.address} onChange={onChange} required />
+                                <input type="text" className="form-input" name="street" value={data.street} onChange={onChange} required />
                             </div>
 
                             <div className="form-group">
@@ -170,7 +171,7 @@ export default props => {
 
                             <div className="form-group">
                                 <label htmlFor=""><b>Estado:</b></label>
-                                <input type="text" className="form-input" name="state" value={data.state} onChange={onChange} required />
+                                <input type="text" className="form-input" name="uf" value={data.uf} onChange={onChange} required />
                             </div>
 
                             <div className="form-group">

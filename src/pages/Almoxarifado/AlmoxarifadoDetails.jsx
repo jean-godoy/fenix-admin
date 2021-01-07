@@ -13,11 +13,11 @@ export default props => {
     const [data, setData] = useState([]);
 
     useEffect(() => {
-        api.get(`/almoxarifado-id/${id}`).then(({ data }) => {
+        api.get(`/almoxarifados/get-id/${id}`).then(({ data }) => {
             setData(data);
         })
     }, []);
-    
+    console.log(data)
     return (
         <>
             <Menu />
@@ -72,7 +72,7 @@ export default props => {
 
                             <div className="box-data-group">
                                 <span className="data-group-span">
-                                    <b>Número de Série: </b>{data.num_serie}
+                                    <b>Número de Série: </b>{data.numSerie}
                                 </span>
                             </div>
 

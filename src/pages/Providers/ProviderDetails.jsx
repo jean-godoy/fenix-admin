@@ -12,7 +12,7 @@ export default props => {
     const [data, setData] = useState([]);
 
     useEffect(() => {
-        api.get(`/provider-id/${id}`).then(({ data }) => {
+        api.get(`/providers/get-id/${id}`).then(({ data }) => {
             setData(data);
         }).catch(e => {
             alert('Erro, Nenhum Fornecedor Correspondente');
@@ -34,11 +34,11 @@ export default props => {
                         <ul className="box-nav-ul">
 
                             <li className="box-nav-li">
-                                <Link className="box-nav-link" to="/user">Fornecedores</Link>
+                                <Link className="box-nav-link" to="/providers">Fornecedores</Link>
                             </li>
 
                             <li className="box-nav-li">
-                                <Link className="box-nav-link" to="/user-add">Adicionar Fornecedor</Link>
+                                <Link className="box-nav-link" to="/provider-add">Adicionar Fornecedor</Link>
                             </li>
 
                         </ul>
@@ -55,7 +55,7 @@ export default props => {
 
                             <div className="box-data-group">
                                 <span className="data-group-span">
-                                    <b>Nome: </b>{data.name}
+                                    <b>Nome: </b>{data.providerName}
                                 </span>
                             </div>
 
@@ -67,7 +67,7 @@ export default props => {
 
                             <div className="box-data-group">
                                 <span className="data-group-span">
-                                    <b>Endereço: </b>{data.address}
+                                    <b>Endereço: </b>{data.street}
                                 </span>
                             </div>
 
@@ -97,7 +97,7 @@ export default props => {
 
                             <div className="box-data-group">
                                 <span className="data-group-span">
-                                    <b>Estado: </b>{data.state}
+                                    <b>Estado: </b>{data.uf}
                                 </span>
                             </div>
 

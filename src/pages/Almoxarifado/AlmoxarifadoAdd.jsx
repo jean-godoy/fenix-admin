@@ -29,9 +29,9 @@ export default props => {
         e.preventDefault();
 
         const data_string = JSON.stringify(values);
-         console.log(data_string);
+        
 
-         api.post('/almoxarifado-add', data_string).then((res) => {
+         api.post('/almoxarifados/create', data_string).then((res) => {
              alert('Produto Cadastrado com Sucesso!!');
          }).catch(e => {
              alert('Erro ao Cadastrar Produto.. :(')

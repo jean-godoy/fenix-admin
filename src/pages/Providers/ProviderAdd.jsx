@@ -36,20 +36,20 @@ export default props => {
         e.preventDefault();
 
         const data_values = {
-            name: data.name,
+            provider_name: data.name,
             cnpj: unMask(cnpj),
-            address: data.address,
+            street: data.address,
             district: data.district,
             cep: unMask(cep),
             city: data.city,
             phone: unMask(phone),
-            state: data.state,
+            uf: data.state,
             subscription: data.subscription
         }
 
         const data_string = JSON.stringify(data_values);
 
-        api.post('/provider-add', data_string).then((data) => {
+        api.post('/providers/create', data_string).then((data) => {
             alert('Fornecedor Cadastrado Com Sucesso!');
         }).catch(e => {
             console.log(e);

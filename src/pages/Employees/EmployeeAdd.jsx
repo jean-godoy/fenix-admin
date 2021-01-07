@@ -47,27 +47,24 @@ export default props => {
         //muda data para padrao americano
         let getDate = date;
         let outDate = getDate.split('/').reverse().join('-');
-        const DateIn = DateFullIn(new Date());
 
        const data_values = {
-            name: data.name,
+            employee_name: data.name,
             phone: unMask(phone),
-            address: data.address,
+            street: data.address,
             cpf: unMask(cpf),
             rg: unMask(rg),
             birth_date: outDate,
             city: data.city,
-            state: data.state,
+            uf: data.state,
             email: data.email,
             office: data.office,
             salary: unMask(number),
-            create_at: DateIn,
-            update_at: DateIn,
         }
 
-        console.log(data_values)
+        const data_string = JSON.stringify(data_values);
 
-        api.post('/employee/add', data_values).then((res) =>{
+        api.post('/employees/create', data_string).then((res) =>{
             alert('Funcionário Cadastrado Com Sucesso!!');
         }).catch(e => {
             return alert('Erro ao Cadastrar Funcionário.. :(')

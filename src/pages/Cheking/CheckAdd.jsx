@@ -12,8 +12,8 @@ import DateFullIn from '../../components/Date/DateFullIn';
 import { mask, unMask } from 'remask';
 
 const initialValues = {
-    nfe: '',
-    nfe_file: '',
+    os: '',
+    status: '',
 }
 
 export default props => {
@@ -32,21 +32,15 @@ export default props => {
     function onSubmit(e) {
         e.preventDefault();
 
-        //muda data para padrao americano
-        let getDate = date;
-        let outDate = getDate.split('/').reverse().join('-');
-        const DateIn = DateFullIn(new Date());
-
        const data_values = {
-            nfe: data.nfe,
-            nfe_file: data.nfe_file,
-            create_at: DateIn,
-            update_at: DateIn,
+            os: data.os,
+            status: 1,
+           
         }
 
-        
+        const data_string = JSON.stringify(data_values);
 
-        api.post('/check-add', data_values).then((res) =>{
+        api.post('/checking/create', data_string).then((res) =>{
             alert('Carga Adiciona Com Sucesso!!');
         }).catch(e => {
             return alert('Erro ao Adicionar Carga.. :(')
@@ -68,7 +62,7 @@ export default props => {
                         <ul className="box-nav-ul">
 
                             <li className="box-nav-li">
-                                <Link className="box-nav-link" to="/checking">Cargas</Link>
+                                <Link className="box-nav-link" to="/cheking">Cargas</Link>
                             </li>
 
                             <li className="box-nav-li">
@@ -87,13 +81,8 @@ export default props => {
                         <form onSubmit={onSubmit} className="box-form">
 
                             <div className="form-group">
-                                <label htmlFor=""><b>Número da NF-e:</b></label>
-                                <input type="text" className="form-input" name="nfe" onChange={onChange} required />
-                            </div>
-
-                            <div className="form-group">
-                                <label htmlFor=""><b>arquivo da NF-e:</b></label>
-                                <input type="file" className="form-input" name="nfe_file" onChange={onChange} required />
+                                <label htmlFor=""><b>Número O.P.</b></label>
+                                <input type="text" className="form-input" name="os" onChange={onChange} required />
                             </div>
 
                             <div className="btn-group">

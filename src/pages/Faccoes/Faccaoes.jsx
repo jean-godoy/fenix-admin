@@ -57,8 +57,8 @@ export default props => {
                                 {data.length && data.map(item => {
                                     return (
                                         <li key={item.id_provider} className="box-list-li">
-                                            <Link className="box-list-link" to={`/faccao-details/${item.id_faccao}`} >
-                                                <span className="box-list-span"><b>Facção: </b>{item.faccao_name} </span>
+                                            <Link className="box-list-link" to={`/faccao-details/${item.id}`} >
+                                                <span className="box-list-span"><b>Facção: </b>{item.faccaoName} </span>
                                             </Link>
                                         </li>
                                     )

@@ -15,7 +15,7 @@ export default props => {
         <header className="container-header">
             <span className="header-inc-name"><b>Fenix Facções</b></span>
             <div className="box-header">
-            <span className="header-user"><b>{data.user_name}</b></span>
+            <span className="header-user"><b></b></span>
                <FiMail className="header-bell" color="black" size="25"/>
                <FiBell className="header-bell" color="black" size="25"/>
             </div>

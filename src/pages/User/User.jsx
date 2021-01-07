@@ -13,13 +13,13 @@ export default props => {
     const [data, setData] = useState([]);
 
     useEffect(() => {
-        api.get('/users').then(({ data }) => {
+        api.get('/users/').then(({ data }) => {
             setData(data);
         }).catch(e => {
             console.log(e);
         });
     }, []);
-    // console.log(data);
+    
     return (
         <>
             <Menu />
@@ -56,9 +56,9 @@ export default props => {
                                 {data.map(item => {
                                     return (
                                         <li key={item.id_user} className="box-list-li">
-                                            <Link className="box-list-link" to={`/user-details/${item.id_user}`} >
-                                                <span className="box-list-span"><b>Nome: </b>{item.user_name} </span>
-                                                <span className="box-list-span"><b>E-mail: </b>{item.user_email} </span>
+                                            <Link className="box-list-link" to={`/user-details/${item.id}`} >
+                                                <span className="box-list-span"><b>Nome: </b>{item.userName} </span>
+                                               
                                             </Link>
                                         </li>
                                     )

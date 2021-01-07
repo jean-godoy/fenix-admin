@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { FiUserPlus, FiUsers } from "react-icons/fi";
 import api from '../../api';
+import './checking.css';
+
 
 //components
 import Menu from '../../components/Menu/Menu';
@@ -13,7 +15,7 @@ export default props => {
     const [data, setData] = useState([]);
 
     useEffect(() => {
-        api.get('/providers').then(({data}) => {
+        api.get('/checking/').then(({data}) => {
             setData(data);
         }).catch(e => {
             return alert('Erro ao Cadastrar Fornecedor');
@@ -56,9 +58,9 @@ export default props => {
                             <ul className="box-list-ul">
                                 {data.length && data.map(item => {
                                     return (
-                                        <li key={item.id_provider} className="box-list-li">
-                                            <Link className="box-list-link" to={`/provider-details/${item.id_provider}`} >
-                                                <span className="box-list-span"><b>Carga: </b>{item.name} </span>
+                                        <li key={item.id} className={`box-list-li status-${item.status}`}>
+                                            <Link className="box-list-link" to={`/check-edit/${item.id}`} >
+                                                <span className="box-list-span"><b>O.P: </b>{item.os} </span>
                                             </Link>
                                         </li>
                                     )

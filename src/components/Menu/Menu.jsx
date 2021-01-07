@@ -69,6 +69,27 @@ export default props => {
                         </Link>
                     </li>
 
+                    <li className="li-menu">
+                        <Link to="/ordem-producao" className="link-menu">
+                            <FiShoppingCart className="icon-menu"  color="#efefef" size="20" />
+                            <span className="span-menu">Gerar O.P.</span>
+                        </Link>
+                    </li>
+
+                    <li className="li-menu">
+                        <Link to="/estoque" className="link-menu">
+                            <FiShoppingCart className="icon-menu"  color="#efefef" size="20" />
+                            <span className="span-menu">Estoque</span>
+                        </Link>
+                    </li>
+
+                    <li className="li-menu">
+                        <Link to="/romaneios" className="link-menu">
+                            <FiShoppingCart className="icon-menu"  color="#efefef" size="20" />
+                            <span className="span-menu">Romaneios</span>
+                        </Link>
+                    </li>
+
                      <li className="li-menu">
                         <Link to="/logout" className="link-menu">
                             <FiPower className="icon-menu"  color="#efefef" size="20" />

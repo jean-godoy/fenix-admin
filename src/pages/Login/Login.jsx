@@ -29,11 +29,11 @@ export default props => {
 
     function onSubmit(e) {
         e.preventDefault();
-
+        
         const data_string = JSON.stringify(values)
 
-        api.post('/checked', data_string).then(({ data }) => {
-
+        api.post('/auth/checked', data_string).then(({ data }) => {
+            console.log(data.user_name)
             if (data.user_pass === values.user_pass) {
 
                 const user_data = {
@@ -57,7 +57,7 @@ export default props => {
             console.log("error :" + e)
         })
     }
-    // console.log(values)
+    
     return (
 
         <div className="box">

@@ -16,7 +16,7 @@ export default props => {
     const [data, setData] = useState([]);
 
     useEffect(() => {
-        api.get('/almoxarifados').then(({data}) => {
+        api.get('/almoxarifados/').then(({data}) => {
             setData(data);
         }).catch(e => {
             return alert('Erro ao Cadastrar Fornecedor');
@@ -59,7 +59,7 @@ export default props => {
                                 {data.length && data.map(item => {
                                     return (
                                         <li key={item.id_provider} className="box-list-li">
-                                            <Link className="box-list-link" to={`/almoxarifado-details/${item.id_almoxarifado}`} >
+                                            <Link className="box-list-link" to={`/almoxarifado-details/${item.id}`} >
                                                 <span className="box-list-span"><b>Produto: </b>{item.produto} </span>
                                             </Link>
                                         </li>

@@ -12,6 +12,10 @@ import DateFullIn from '../../components/Date/DateFullIn';
 import { mask, unMask } from 'remask';
 
 const initialValues = {
+    user_name: '',
+    user_email: '',
+    user_pass: '',
+    pass_confirm: '',
     faccao_name: '',
     phone: '',
     street: '',
@@ -30,13 +34,21 @@ export default props => {
 
     function onChange(e) {
         const { name, value } = e.target;
-        setData({...data, [name]:value});
+        setData({ ...data, [name]: value });
     };
 
     function onSubmit(e) {
         e.preventDefault();
 
-       const data_values = {
+        if(data.user_pass !== data.pass_confirm)
+        {
+            alert("SENHAS NÃO CONFEREM...");  
+        } 
+
+        const data_values = {
+            user_name: data.user_name,
+            user_email: data.user_email,
+            user_pass: data.user_pass,
             faccao_name: data.faccao_name,
             phone: unMask(phone),
             street: data.street,
@@ -46,12 +58,11 @@ export default props => {
         }
 
         const data_string = JSON.stringify(data_values);
-
-        console.log(data_string);
-
-        api.post('/faccao-add', data_string).then((res) =>{
+       console.log(data_string)
+        api.post('/faccoes/create', data_string).then((res) => {
             alert('Funcionário Cadastrado Com Sucesso!!');
         }).catch(e => {
+            console.log(e)
             return alert('Erro ao Cadastrar Funcionário.. :(');
         });
     };
@@ -64,15 +75,13 @@ export default props => {
         setPhone(mask(unMask(e.target.value), ['(99) 9999-9999', '(99) 9 9999-9999']));
     }
 
-   
-
-    return(
+    return (
         <>
             <Menu />
             <div className="container">
 
-            <Header />
-                
+                <Header />
+
                 <div className="box-main">
 
                     <header>Adicionar Facção</header>
@@ -100,7 +109,27 @@ export default props => {
                         <form onSubmit={onSubmit} className="box-form">
 
                             <div className="form-group">
-                                <label htmlFor=""><b>Nome:</b></label>
+                                <label htmlFor=""><b>Nome de Usuário:</b></label>
+                                <input type="text" className="form-input" name="user_name" onChange={onChange} required />
+                            </div>
+
+                            <div className="form-group">
+                                <label htmlFor=""><b>E-mail:</b></label>
+                                <input type="text" className="form-input" name="user_email" onChange={onChange} required />
+                            </div>
+
+                            <div className="form-group">
+                                <label htmlFor=""><b>Senha:</b></label>
+                                <input type="text" className="form-input" name="user_pass" onChange={onChange} required />
+                            </div>
+
+                            <div className="form-group">
+                                <label htmlFor=""><b>Confirmar Senha:</b></label>
+                                <input type="text" className="form-input" name="pass_confirm" onChange={onChange} required />
+                            </div>
+
+                            <div className="form-group">
+                                <label htmlFor=""><b>Facção:</b></label>
                                 <input type="text" className="form-input" name="faccao_name" onChange={onChange} required />
                             </div>
 
