@@ -11,7 +11,6 @@ import DateFullIn from '../../components/Date/DateFullIn';
 export default props => {
 
     const id_user = props.match.params.id;
-    const dateFullIn = DateFullIn(new Date());
     const [user, setUser] = useState([]);
     const history = useHistory();
 
@@ -19,7 +18,7 @@ export default props => {
         api.get(`/users/get-id/${id_user}`).then(({ data }) => {
             setUser(data);
         })
-    }, []);
+    });
 
     function onChange(e) {
         const { name, value } = e.target;

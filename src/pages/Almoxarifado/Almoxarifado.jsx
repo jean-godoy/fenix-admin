@@ -9,8 +9,6 @@ import api from '../../api';
 import Menu from '../../components/Menu/Menu';
 import Header from '../../components/Header/Header';
 
-import pdf_file from '../../pages/PDF/model.pdf';
-
 export default props => {
     
     const [data, setData] = useState([]);
