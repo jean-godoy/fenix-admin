@@ -4,13 +4,6 @@ import { FiBell, FiMail } from 'react-icons/fi';
 
 export default props => {
 
-    const [data, setData] = useState([]);
-
-    useEffect(() => {
-       const req = JSON.parse(localStorage.getItem('@friday_user_data'));
-       setData(req);
-    }, [])
-
     return(
         <header className="container-header">
             <span className="header-inc-name"><b>Fenix Facções</b></span>

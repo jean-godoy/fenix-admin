@@ -27,7 +27,7 @@ export default props => {
         }).catch(e => {
             return alert('Nenhuma Faccção corresponde está id');
         });
-    }, []);
+    });
 
     return (
         <>

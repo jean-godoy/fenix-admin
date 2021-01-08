@@ -38,7 +38,7 @@ export default props => {
         }).catch(e => {
             return alert('Nenhum funcionário corresponde está id');
         });
-    },[]);
+    });
 
     function onChange(e) {
         const { name, value } = e.target;

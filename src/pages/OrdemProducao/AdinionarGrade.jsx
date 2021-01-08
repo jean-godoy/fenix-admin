@@ -7,7 +7,6 @@ import api from '../../api';
 //componets
 import Menu from '../../components/Menu/Menu';
 import Header from '../../components/Header/Header';
-import DateFullIn from '../../components/Date/DateFullIn';
 
 const initialValues = {
    op: '',

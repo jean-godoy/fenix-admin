@@ -7,7 +7,6 @@ import './estoque.css';
 //components
 import Menu from '../../components/Menu/Menu';
 import Header from '../../components/Header/Header';
-import DateFullIn from '../../components/Date/DateFullIn';
 
 const initialValues = {
     op: ''
@@ -16,7 +15,7 @@ const initialValues = {
 export default props => {
 
     const [data, setData] = useState(initialValues);
-    const [response, setResponse] = useState([]);
+    // const [response, setResponse] = useState([]);
     const [sequencia, setSequencia] = useState([]);
 
     // useEffect(() => {
@@ -36,7 +35,7 @@ export default props => {
         e.preventDefault();
 
         api.get(`/estoque/get-id/${data.op}`).then(({ data }) => {
-            setResponse(data);
+            // setResponse(data);
             setSequencia(data.sequencia_operacional);
         }).catch(e => {
             return alert('Nenhum romaneio corresponde a essa o.p.');

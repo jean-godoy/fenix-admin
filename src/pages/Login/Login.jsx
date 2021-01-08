@@ -13,7 +13,6 @@ export default props => {
 
     const history = useHistory();
     const [values, setValues] = useState(initialValues);
-    const [user, setUser] = useState();
 
     //função que verifica se existe um token 
     useEffect(() => {
