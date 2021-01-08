@@ -58,9 +58,6 @@ import RomaneioExpedicao from './pages/Romaneios/RomaneioExpedicao';
 //Estoque
 import Estoque from './pages/Estoque/Estoque';
 
-//pdf convert
-import PDF from './pages/PDF/Pdf';
-
 export default props => {
 
     const PrivateRoute = ({ component: Component, ...rest }) => ( <
@@ -105,9 +102,6 @@ export default props => {
                     <PrivateRoute exact path="/providers" component={Providers} />
                     <PrivateRoute exact path="/provider-add" component={ProviderAdd} />
                     <PrivateRoute exact path="/provider-details/:id" component={ProviderDetails} />
-
-                    {/* PDF Router */}
-                    <PrivateRoute exact path="/get-pdf" component={PDF} />
 
                     {/* Almoxarifado Router */}
                     <PrivateRoute exact path="/almoxarifado" component={Almoxarifado} />
