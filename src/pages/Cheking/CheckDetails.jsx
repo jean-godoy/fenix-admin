@@ -6,9 +6,6 @@ import api from '../../api';
 //components
 import Menu from '../../components/Menu/Menu';
 import Header from '../../components/Header/Header';
-import DateFullIn from '../../components/Date/DateFullIn';
-
-
 
 export default props => {
 

@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { FiUserPlus } from "react-icons/fi";
 import api from '../../api';
 
 //componets
 import Menu from '../../components/Menu/Menu';
 import Header from '../../components/Header/Header';
-import DateFullIn from '../../components/Date/DateFullIn';
 
 //mask
 import { mask, unMask } from 'remask';
@@ -28,6 +27,7 @@ const initialValues = {
 export default props => {
 
     const [data, setData] = useState(initialValues);
+    const history = useHistory();
 
     //maskers
     const [date, setDate] = useState('');
@@ -66,6 +66,7 @@ export default props => {
 
         api.post('/employees/create', data_string).then((res) =>{
             alert('Funcionário Cadastrado Com Sucesso!!');
+            return history.push('/employees');
         }).catch(e => {
             return alert('Erro ao Cadastrar Funcionário.. :(')
         });

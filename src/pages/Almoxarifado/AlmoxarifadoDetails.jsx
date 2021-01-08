@@ -85,7 +85,7 @@ export default props => {
                         </div>
 
                         <div className="btn-group">
-                            <Link className="button" to={`/almoxarifado-edit/${id}`}>Editar</Link>
+                            {/* <Link className="button" to={`/almoxarifado-edit/${id}`}>Editar</Link> */}
                             <Link className="button" to="/user">OK</Link>
                         </div>
 

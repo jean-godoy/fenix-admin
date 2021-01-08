@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { FiUsers } from 'react-icons/fi';
 import api from '../../api';
 
@@ -19,6 +19,7 @@ const initialValues = {
 export default props => {
 
     const [values, setValues] = useState(initialValues);
+    const history = useHistory();
 
     function onChange(e) {
         const { name, value } = e.target;
@@ -33,6 +34,7 @@ export default props => {
 
          api.post('/almoxarifados/create', data_string).then((res) => {
              alert('Produto Cadastrado com Sucesso!!');
+             return history.push('/almoxarifado')
          }).catch(e => {
              alert('Erro ao Cadastrar Produto.. :(')
                console.log(e); 

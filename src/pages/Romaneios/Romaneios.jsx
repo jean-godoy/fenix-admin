@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useHistory } from 'react-router-dom';
-import { FiUserPlus, FiUsers } from "react-icons/fi";
+import { Link } from 'react-router-dom';
+import { FiUsers } from "react-icons/fi";
 import api from '../../api';
 
 
 //components
 import Menu from '../../components/Menu/Menu';
 import Header from '../../components/Header/Header';
-import DateFullIn from '../../components/Date/DateFullIn';
 
 export default props => {
 
@@ -17,7 +16,7 @@ export default props => {
         api.get('/romaneios').then(({data}) => {
             setData(data);
         }).catch(e => {
-            return alert('Nenhum Romaneio Válido');
+            return alert('Nenhum Romaneio Encontrado!');
         });
     },[]);
     
@@ -55,7 +54,7 @@ export default props => {
 
                         <div className="box-list">
                             <ul className="box-list-ul">
-                                {data.length && data.map(item => {
+                                {/* {data.length && data.map(item => {
                                     // obs: os seria op, foi mudado durante o preceso
                                     return (
                                         <li key={item.id} className={`box-list-li status-${item.status}`}>
@@ -64,7 +63,7 @@ export default props => {
                                             </Link>
                                         </li>
                                     )
-                                })}
+                                })} */}
                             </ul>
                         </div>
 

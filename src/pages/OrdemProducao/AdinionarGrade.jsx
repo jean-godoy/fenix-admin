@@ -19,7 +19,6 @@ export default props => {
 
     const ordem_prod = props.match.params.id;
     const [data, setData] = useState(initialValues);
-    const dateFullIn = DateFullIn(new Date());
     const [grade, setGrade] = useState([]);
     const history = useHistory();
 
@@ -55,6 +54,7 @@ export default props => {
         console.log(data_string)
         api.post('/grade/grade-romaneio-add', data_string).then((res) => {
             alert("Grade para romaneio gerada com sucesso!");
+            return history.push('/grade');
         }).catch((e) => {
             alert("Ops.., problemas ao gerar a grade.. :(");
             console.log("Grade error :"+e);

@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useHistory } from 'react-router-dom';
-import { FiUserPlus, FiUsers } from "react-icons/fi";
+// import { FiUserPlus, FiUsers } from "react-icons/fi";
 import api from '../../api';
 
 //components
 import Menu from '../../components/Menu/Menu';
 import Header from '../../components/Header/Header';
-import DateFullIn from '../../components/Date/DateFullIn';
 
 //mask
 import { mask, unMask } from 'remask';
@@ -31,6 +30,7 @@ export default props => {
     const [cnpj, setCnpj] = useState('');
     const [cep, setCep] = useState('');
     const [phone, setPhone] = useState('');
+    const history = useHistory();
 
     function onSubmit(e) {
         e.preventDefault();
@@ -51,6 +51,7 @@ export default props => {
 
         api.post('/providers/create', data_string).then((data) => {
             alert('Fornecedor Cadastrado Com Sucesso!');
+            return history.push('/providers')
         }).catch(e => {
             console.log(e);
             return alert('Erro ao Cadastrar Fornecedor.. :(')

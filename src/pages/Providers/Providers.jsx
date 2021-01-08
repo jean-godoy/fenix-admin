@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useHistory } from 'react-router-dom';
-import { FiUserPlus, FiUsers } from "react-icons/fi";
+import { FiUsers } from "react-icons/fi";
 import api from '../../api';
 
 //components
 import Menu from '../../components/Menu/Menu';
 import Header from '../../components/Header/Header';
-import DateFullIn from '../../components/Date/DateFullIn';
 
 export default props => {
 

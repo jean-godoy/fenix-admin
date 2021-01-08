@@ -6,10 +6,7 @@ import api from '../../api';
 //componets
 import Menu from '../../components/Menu/Menu';
 import Header from '../../components/Header/Header';
-import DateFullIn from '../../components/Date/DateFullIn';
 
-//mask
-import { mask, unMask } from 'remask';
 
 const initialValues = {
     os: '',
@@ -19,10 +16,6 @@ const initialValues = {
 export default props => {
 
     const [data, setData] = useState(initialValues);
-
-    //maskers
-    const [date, setDate] = useState('');
-
 
     function onChange(e) {
         const { name, value } = e.target;
