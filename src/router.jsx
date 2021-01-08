@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
+import { BrowserRouter, Switch, Route, Redirect, HashRouter } from 'react-router-dom';
 import './components/Pikasso/Global.css';
 
 //checking authentication
@@ -78,8 +78,8 @@ export default props => {
 
     return (
         <div className="boat">
-            <BrowserRouter>
-                <Switch>
+            <HashRouter>
+                //<Switch>
                     <Route exact path="/" component={Home} />
 
                     {/* Login Router */}
@@ -131,8 +131,8 @@ export default props => {
                     {/* Estoque Route */}
                     <PrivateRoute exact path="/estoque" component={Estoque} />
 
-                </Switch>
-            </BrowserRouter>
+                //</Switch>
+            </HashRouter>
 
         </div>
     );
