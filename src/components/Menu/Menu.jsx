@@ -76,7 +76,7 @@ export default props => {
                     <li className="li-menu">
                         <Link to="/ordem-producao" className="link-menu">
                             <FiShoppingCart className="icon-menu"  color="#efefef" size="20" />
-                            <span className="span-menu">Gerar O.P.</span>
+                            <span className="span-menu">Garregar O.P.</span>
                         </Link>
                     </li>
 

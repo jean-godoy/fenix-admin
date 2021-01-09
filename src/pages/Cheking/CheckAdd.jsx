@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { FiUserPlus } from "react-icons/fi";
 import api from '../../api';
 
@@ -7,46 +7,37 @@ import api from '../../api';
 import Menu from '../../components/Menu/Menu';
 import Header from '../../components/Header/Header';
 
-
-const initialValues = {
-    os: '',
-    status: '',
-}
-
 export default props => {
 
-    const [data, setData] = useState(initialValues);
+    const [data, setData] = useState([]);
+    const [nfe, setNfe] = useState([]);
+    const history = useHistory();
 
-    function onChange(e) {
-        const { name, value } = e.target;
-        setData({...data, [name]:value});
-    };
+    const handNfe  = (e) => setNfe(e.target.files[0]);
 
     function onSubmit(e) {
         e.preventDefault();
 
-       const data_values = {
-            os: data.os,
-            status: 1,
-           
-        }
+        const formData = new FormData();
 
-        const data_string = JSON.stringify(data_values);
-
-        api.post('/checking/create', data_string).then((res) =>{
+        formData.append('nfe_file', nfe);
+       
+        api.post('/checking/create', formData).then((res) => {
             alert('Carga Adiciona Com Sucesso!!');
+            return history.push('/cheking/')
         }).catch(e => {
+            console.log({e})
             return alert('Erro ao Adicionar Carga.. :(')
         });
     };
 
-    return(
+    return (
         <>
             <Menu />
             <div className="container">
 
-            <Header />
-                
+                <Header />
+
                 <div className="box-main">
 
                     <header>Adicionar Carga</header>
@@ -74,8 +65,8 @@ export default props => {
                         <form onSubmit={onSubmit} className="box-form">
 
                             <div className="form-group">
-                                <label htmlFor=""><b>Número O.P.</b></label>
-                                <input type="text" className="form-input" name="os" onChange={onChange} required />
+                                <label htmlFor=""><b>Arquivo NF-e:</b></label>
+                                <input type="file" className="form-input" name="nfe_file" onChange={handNfe} required />
                             </div>
 
                             <div className="btn-group">

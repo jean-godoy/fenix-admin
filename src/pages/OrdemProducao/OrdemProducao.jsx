@@ -50,7 +50,7 @@ export default props => {
 
                         <div className="box-list">
                             <ul className="box-list-ul">
-                                {data.length && data.map(item => {
+                                {/* {data.length && data.map(item => {
                                     return (
                                         <li key={item.id} className={`box-list-li status-${item.status}`}>
                                             <Link className="box-list-link" to={`/ordem-producao-add/${item.os}`} >
@@ -58,7 +58,7 @@ export default props => {
                                             </Link>
                                         </li>
                                     )
-                                })}
+                                })} */}
                             </ul>
                         </div>
 

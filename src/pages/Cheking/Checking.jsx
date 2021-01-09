@@ -59,7 +59,7 @@ export default props => {
                                     return (
                                         <li key={item.id} className={`box-list-li status-${item.status}`}>
                                             <Link className="box-list-link" to={`/check-edit/${item.id}`} >
-                                                <span className="box-list-span"><b>O.P: </b>{item.os} </span>
+                                                <span className="box-list-span"><b>O.P: </b>{item.nfeNumber} </span>
                                             </Link>
                                         </li>
                                     )
