@@ -13,7 +13,7 @@ export default props => {
     const [data, setData] = useState([]);
 
     useEffect(() => {
-        api.get('/romaneios').then(({data}) => {
+        api.get('/romaneios/').then(({data}) => {
             setData(data);
         }).catch(e => {
             return alert('Nenhum Romaneio Encontrado!');

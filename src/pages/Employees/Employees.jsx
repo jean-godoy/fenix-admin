@@ -12,10 +12,10 @@ export default props => {
     const [data, setData] = useState([]);
 
     useEffect(() => {
-        api.get('/employees').then(({ data }) => {
+        api.get('/employees/').then(({ data }) => {
             setData(data);
         }).catch(e => {
-            console.log(e);
+            console.log({e});
         });
     }, []);
 
