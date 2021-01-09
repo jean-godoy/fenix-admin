@@ -48,3 +48,11 @@
 .icon-menu {
     margin-right: 15px;
 }
+
+.menu-hr {
+    margin: 10px auto;
+    width: 95%;
+    height: 1px;
+    border: 1px solid #999;
+    border-radius: 10%;
+}

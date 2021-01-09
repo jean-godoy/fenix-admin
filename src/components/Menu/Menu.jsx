@@ -23,9 +23,11 @@ export default props => {
                     <li className="li-menu">
                         <Link to="/" className="link-menu">
                             <FiHome className="icon-menu"  color="#efefef" size="20" />
-                            <span className="span-menu">Visão Geral</span>
+                            <span className="span-menu">Home</span>
                         </Link>
                     </li>
+
+                    <div className="menu-hr"></div>
 
                     <li className="li-menu">
                         <Link to="/user" className="link-menu">
@@ -62,6 +64,8 @@ export default props => {
                         </Link>
                     </li>
 
+                    <div className="menu-hr"></div>
+
                     <li className="li-menu">
                         <Link to="/cheking" className="link-menu">
                             <FiShoppingCart className="icon-menu"  color="#efefef" size="20" />
@@ -89,6 +93,8 @@ export default props => {
                             <span className="span-menu">Romaneios</span>
                         </Link>
                     </li>
+
+                    <div className="menu-hr"></div>
 
                      <li className="li-menu">
                         <Link to="/logout" className="link-menu">

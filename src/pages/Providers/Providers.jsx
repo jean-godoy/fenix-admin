@@ -12,7 +12,7 @@ export default props => {
     const [data, setData] = useState([]);
 
     useEffect(() => {
-        api.get('/providers').then(({data}) => {
+        api.get('/providers/').then(({data}) => {
             setData(data);
         }).catch(e => {
             return alert('Erro ao Cadastrar Fornecedor');
