@@ -32,7 +32,7 @@ export default props => {
         const data_string = JSON.stringify(values)
 
         api.post('/auth/checked', data_string).then(({ data }) => {
-            console.log(data.user_name)
+            
             if (data.user_pass === values.user_pass) {
 
                 const user_data = {
