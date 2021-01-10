@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { FiUsers } from "react-icons/fi";
+import { FiFileText } from "react-icons/fi";
 import api from '../../api';
 
 
@@ -44,8 +44,8 @@ export default props => {
                     <div className="box-body">
 
                         <header>
-                            <FiUsers className="box-body-icon" />
-                            <span> > Selecione uma O.P.</span>
+                            <FiFileText className="box-body-icon" />
+                            <span> > Selecione uma NF-e.</span>
                         </header>
 
                         <div className="box-list">

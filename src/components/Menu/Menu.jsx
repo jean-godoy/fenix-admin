@@ -5,7 +5,11 @@ import {
     FiUsers,
     FiTruck,
     FiShoppingCart,
-    FiPower
+    FiPower,
+    FiFilePlus,
+    FiCheckCircle,
+    FiBookOpen,
+    FiBox
 } from "react-icons/fi";
 import './menu.css';
 
@@ -59,7 +63,7 @@ export default props => {
 
                     <li className="li-menu">
                         <Link to="/almoxarifado" className="link-menu">
-                            <FiShoppingCart className="icon-menu"  color="#efefef" size="20" />
+                            <FiBox className="icon-menu"  color="#efefef" size="20" />
                             <span className="span-menu">Almoxarifado</span>
                         </Link>
                     </li>
@@ -68,21 +72,21 @@ export default props => {
 
                     <li className="li-menu">
                         <Link to="/cheking" className="link-menu">
-                            <FiShoppingCart className="icon-menu"  color="#efefef" size="20" />
+                            <FiCheckCircle className="icon-menu"  color="#efefef" size="20" />
                             <span className="span-menu">Liberação</span>
                         </Link>
                     </li>
 
                     <li className="li-menu">
                         <Link to="/ordem-producao" className="link-menu">
-                            <FiShoppingCart className="icon-menu"  color="#efefef" size="20" />
+                            <FiFilePlus className="icon-menu"  color="#efefef" size="20" />
                             <span className="span-menu">Garregar O.P.</span>
                         </Link>
                     </li>
 
                     <li className="li-menu">
                         <Link to="/estoque" className="link-menu">
-                            <FiShoppingCart className="icon-menu"  color="#efefef" size="20" />
+                            <FiBookOpen className="icon-menu"  color="#efefef" size="20" />
                             <span className="span-menu">Estoque</span>
                         </Link>
                     </li>
