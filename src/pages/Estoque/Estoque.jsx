@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { FiUsers } from "react-icons/fi";
+import { FiFile } from "react-icons/fi";
 import api from '../../api';
 import './estoque.css';
 
@@ -69,8 +69,8 @@ export default props => {
                             <div className="header-src">
 
                                 <div>
-                                    <FiUsers className="box-body-icon" />
-                                    <span> > Selecione uma Ordem de Produção</span>
+                                    <FiFile className="box-body-icon" />
+                                    <span> > Selecione uma O.P.</span>
                                 </div>
 
                                 <div className="src">
@@ -85,24 +85,6 @@ export default props => {
 
                         <div className="box-romaneio">
 
-                            <header className="romaneio-header">
-
-                                <div className="column-left">
-                                    <div>Pacifico Sul Ind. Têxtil e Confec. Ltda           17/09/20 16:45</div>
-                                    <div className="descricao">REF: 45204 - COR 000001 - DESC: BLUSAO ML</div>
-
-                                    <div className="grade">
-
-                                    </div>
-                                </div>
-
-                                <div className="column-right">
-
-
-                                </div>
-
-                            </header>
-
                             <main className="box-list">
 
                                 <ul className="romaneio-list-ul">
@@ -113,15 +95,7 @@ export default props => {
                                             <li className="box-nav-li" key={item.id}>
                                                 <Link className="box-nav-link">
 
-                                                    <div className="romaneio-list">
-                                                        <div className="maquina romaneio-config"> {item.maquina} </div>
-                                                        <div className="seq romaneio-config"> {item.sequencia} </div>
-                                                        <div className="operacao romaneio-config"> {item.operacao} </div>
-                                                        <div className="tempo romaneio-config"> {item.tempoSemInt} </div>
-                                                        <div className="tempo romaneio-config"> {item.tempoComInt} </div>
-                                                        <div className="hora romaneio-config"> {item.pecasHora} </div>
-                                                    </div>
-
+                                        
                                                 </Link>
                                             </li>
                                         );
