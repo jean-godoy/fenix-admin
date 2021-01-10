@@ -28,11 +28,9 @@ export default props => {
 
     function onSubmit(e) {
         e.preventDefault();
-        
         const data_string = JSON.stringify(values)
 
         api.post('/auth/checked', data_string).then(({ data }) => {
-            
             if (data.user_pass === values.user_pass) {
 
                 const user_data = {
@@ -53,7 +51,7 @@ export default props => {
             }
 
         }).catch((e) => {
-            console.log("error :" + e)
+            console.log({e})
         })
     }
     

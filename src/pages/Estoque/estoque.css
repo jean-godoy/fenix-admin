@@ -31,43 +31,20 @@
     background-color: violet;
 }
 
-.romaneio-header span {
-    /* background-color: tomato; */
-}
-
-.romaneio-list-ul {
-    width: 95%;
-}
-
-.romaneio-list {
+.box-estoque-op {
     display: flex;
-    justify-content: space-between;
-    width: 100%;
-    height: 30px;
-    margin: 10px;
-    padding: 5px 10px;
+    align-items: center;
+    justify-content: flex-start;
+    margin: 5px auto;
+    width: 95%;
+    height: 35px;
+    padding: 0 15px;
     background-color: #efefef;
 }
 
-.romaneio-config {
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-end;
-    font-size: 10px;
-    text-align: left;
-    border-right: 1px solid #111111;
-    padding-right:15px;
+.ref {
+    margin-right: 10px;
 }
 
-.maquina {
-    width: 15%;
-}
 
-.seq {
-    width: 5%;
-}
-
-.operacao {
-    width: 50%;
-}
 

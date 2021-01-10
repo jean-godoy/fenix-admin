@@ -38,7 +38,7 @@ export default props => {
        
         api.post('/users/create', data_string).then((res) => {
             alert('Usuario cadastrado com sucesso!');
-            return history.push('/users');
+            return history.push('/user');
         }).catch(e => {
             alert('Erro ao cadastrar usuario, - '+e);
         });

@@ -57,6 +57,7 @@ import RomaneioExpedicao from './pages/Romaneios/RomaneioExpedicao';
 
 //Estoque
 import Estoque from './pages/Estoque/Estoque';
+import EstoqueGet from './pages/Estoque/EstoqueGet';
 
 export default props => {
 
@@ -130,6 +131,7 @@ export default props => {
 
                     {/* Estoque Route */}
                     <PrivateRoute exact path="/estoque" component={Estoque} />
+                    <PrivateRoute exact path="/estoque/get/:id" component={EstoqueGet} />
 
                 </Switch>
             </BrowserRouter>

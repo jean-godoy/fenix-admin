@@ -16,7 +16,7 @@ export default props => {
         api.get('/op/').then(({data}) => {
             setData(data);
         }).catch(e => {
-            return alert('Erro ao Cadastrar Fornecedor');
+            return alert('Nenhuma NF-e Liberada!');
         });
     },[]);
     
