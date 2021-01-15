@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { FiUsers } from "react-icons/fi";
 import api from '../../api';
 
@@ -7,7 +7,6 @@ import api from '../../api';
 //components
 import Menu from '../../components/Menu/Menu';
 import Header from '../../components/Header/Header';
-import DateFullIn from '../../components/Date/DateFullIn';
 
 const initialValues = {
     'faccao': ''
@@ -15,22 +14,26 @@ const initialValues = {
 
 export default props => {
 
-    const [values, setValues] = useState(initialValues);
+    const [op, setOp] = useState([]);
+    const [values, setValues] = useState([]);
     const [data, setData] = useState([]);
     const [romaneio, setRomaneio] = useState([]);
     const [grade, setGrade] = useState([]);
     const [sequencia, setSequencia] = useState([]);
     const [footer, setFooter] = useState([]);
     const [modal, setModal] = useState('close');
-    const [faccao, setFaccao] = useState([]);
-    const dateFullOut = DateFullIn(new Date());
+    const [faccoes, setFaccoes] = useState([]);
+    const [faccao, setfaccao] = useState(initialValues);
+    const [seq, setSeq] = useState([]);
+    const [generate, setGenerate] = useState('close');
+    const history = useHistory();
 
     useEffect(() => {
 
-        // const op = prompt("Ordem de Produção: ");
+        const op = prompt("Ordem de Produção: ");
 
-        const op = '315191';
         const ordem_producao = parseInt(op);
+        setOp(ordem_producao);
         if (ordem_producao !== null || ordem_producao !== "") {
             api.get(`/romaneios/get-romaneio/${ordem_producao}`).then(({ data }) => {
                 setData(data);
@@ -50,6 +53,16 @@ export default props => {
         setValues({ ...values, [name]: value });
     }
 
+    function handleFaccao(e) {
+        const { name, value } = e.target;
+        setfaccao({value});
+    }
+
+    function handleGrade(e) {
+        const { name, value } = e.target;
+        setSeq({ ...seq, [name]: value });
+    }
+
     function open() {
         setModal('open');
         getFaccao();
@@ -57,27 +70,46 @@ export default props => {
 
     async function getFaccao() {
         const response = await api.get('/faccoes');
-        setFaccao(response.data);
+        setFaccoes(response.data);
     }
 
     function close() {
-        setValues({ ...values, ['faccao']: '' });
+        setfaccao({['faccao']: '' });
         setModal('close');
     }
 
-    function save()
-    {
-        if(values.faccao.length > 0)
-        {
-            alert('Facção Salva com sucesso!')
-            setModal('close');  
+    function closeGenerate(){
+        setGenerate('close');
+    }
+
+    function save(faccao) {
+        if (faccao) {
+            setModal('close');
+            setGenerate('open');
         } else {
             alert('Para salvar é preciso escolher uma facção!');
         }
-        
     }
 
-    console.log(values);
+    function handleGenerate(){
+
+        const data_values = {
+            'faccao_code': faccao,
+            'ordem_producao': op,
+            'grade': seq,
+            'sequencia': values
+        }
+
+        const data_string = JSON.stringify(data_values);
+       
+        api.post('/romaneios/gerar-romaneio', data_string).then( ({data}) => {
+            alert('Romaneio Gerado com Sucesso!');
+            return history.push('/romaneios');
+        }).catch(e => {
+            return alert('Erro ao gerar romaneio...');
+        });
+    }
+    
     return (
         <>
             <Menu />
@@ -135,6 +167,7 @@ export default props => {
                                                 <span className="item-grade">{item.grade}</span>
                                                 <span>{item.quantidade}</span>
                                             </div>
+                                            <input type="checkbox" name={item.id} value={item.gradeCode} onChange={handleGrade} />
                                         </li>
                                     )
                                 })}
@@ -183,38 +216,43 @@ export default props => {
                         <button className="modal-bt-faccao" onClick={open}>Selecionar Facção</button>
 
                     </div>
-                    <div className={`modal ${modal}`}>
 
+                    {/* modal escolhe faccao */}
+                    <div className={`modal ${modal}`}>
                         <div className="modal-main">
                             <button className="modal-bt-close" onClick={close}>X</button>
                             <header className="modal-header">
                                 <b>Selecione uma Facção</b>
                             </header>
-
                             <div className="modal-box">
-
                                 <ul className="modal-ul">
-                                    
-                                    {faccao.length && faccao.map(item => {
-                                        return(
+                                    {faccoes.length && faccoes.map(item => {
+                                        return (
                                             <li className="modal-li" key={item.id}>
-                                                <input type="radio" name="faccao" value={item.faccaoCode} onChange={onChange} />
+                                                <input type="radio" name="faccao" value={item.faccaoCode} onChange={handleFaccao} />
                                                 <span><b>Facção: </b>{item.faccaoName}</span>
                                             </li>
                                         );
                                     })}
-
-                                    <button className="modal-bt-save" onClick={save}>Salvar Romaneio</button>
-
-                                </ul>       
-
+                                    <button className="modal-bt-save" onClick={save}>Salvar Facção</button>
+                                </ul>
                             </div>
-
-
                         </div>
-
                     </div>
+                    {/* end modal */}
 
+                    {/* generate */}
+                    <div className={`modal ${generate}`}>
+                        <div className="modal-main">
+                            <button className="modal-bt-close" onClick={closeGenerate}>X</button>
+                            <header className="modal-header">
+                                <b>Gerar Romaneio - O.P: {op} </b>
+                            </header>
+
+                            <button className="modal-bt-save" onClick={handleGenerate}>Salvar</button>
+                        </div>
+                    </div>
+                    {/* end generate */}
                 </div>
 
             </div>

@@ -1,0 +1,93 @@
+
+
+td, th, tfoot {border:solid 1px #555; padding:5px;}
+th {background-color:#999;}
+/* caption {font-size:x-large;}
+colgroup {background:#F60;}
+.coluna1 {background:#F66;}
+.coluna2  {background:#F33;}
+.coluna3  {background:#F99;} */
+
+/* .box-table {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    min-height: 100px;
+    margin: 20px auto;
+} */
+
+.box-table {
+    margin: 10px auto;
+    width: 1240px;
+    font-size: 12px;
+}
+
+
+.table-n-controle {
+    width: 10px;
+    background-color: #333;
+    color: #fff;
+}
+
+.table-faccao {
+    width: 300px;
+    background-color: #333;
+    color: #fff;
+}
+
+.table-ref {
+    background-color: #333;
+    color: #fff;
+}
+
+.table-desc {
+    width: 400px;
+    background-color: #333;
+    color: #fff;
+}
+
+.table-op {
+    width: 20px;
+    background-color: #333;
+    color: #fff;
+}
+
+.table-qnt {
+    background-color: #333;
+    color: #fff;
+}
+
+.table-semana {
+    background-color: #333;
+    color: #fff;
+}
+
+.table-dias {
+    background-color: #333;
+    color: #fff;
+}
+
+.table-status {
+    background-color: #333;
+    color: #fff;
+}
+
+.table-more {
+    max-width: 0 auto;
+    width: 15px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+}
+
+.table-link:hover {
+    display: block;
+    background-color: #999;
+}
+
+
+
+/* tr td {
+    background-color: #333;
+    color: #fff;
+} */
