@@ -81,7 +81,7 @@ export default props => {
                                         <td>{item.semana}</td>
                                         <td>12</td>
                                         <td>1</td>
-                                        <Link className="table-link"><td><FiMoreHorizontal className="box-body-icon" to={`/romaneios/show/${item.romaneio_code}`} /></td></Link>
+                                        <Link className="table-link" to={`/romaneios/show/${item.romaneio_code}`}><td><FiMoreHorizontal className="box-body-icon" /></td></Link>
                                     </tr>
                                 );
                             })}

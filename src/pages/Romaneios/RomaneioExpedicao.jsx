@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useHistory } from 'react-router-dom';
-import { FiUsers } from "react-icons/fi";
+import { FiShoppingCart } from "react-icons/fi";
 import api from '../../api';
 
 
@@ -69,7 +69,7 @@ export default props => {
     }
 
     async function getFaccao() {
-        const response = await api.get('/faccoes');
+        const response = await api.get('/faccoes/');
         setFaccoes(response.data);
     }
 
@@ -109,7 +109,7 @@ export default props => {
             return alert('Erro ao gerar romaneio...');
         });
     }
-    
+    console.log(faccoes)
     return (
         <>
             <Menu />
@@ -138,8 +138,8 @@ export default props => {
                     <div className="box-body">
 
                         <header>
-                            <FiUsers className="box-body-icon" />
-                            <span> > Romaneios - Expedição - Ordem de Produção: <b>{romaneio.ordemProducao}</b></span>
+                            <FiShoppingCart className="box-body-icon" />
+                            <span> > Romaneios Expedição - Ordem de Produção: <b>{romaneio.ordemProducao}</b></span>
                         </header>
 
                         <div className="box-tables">

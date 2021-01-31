@@ -84,27 +84,27 @@ export default props => {
                             </div>
                             <div className="form-group">
                                 <label htmlFor="status-1"><b>Aguardando Verificação</b></label>
-                                <input className="input-checked" type="radio" onChange={({ target:{cheacked} }) => onChange({target:{name:'status', value:1}})} id="status-1"  checked={1 === values.status} />
+                                <input className="input-checked" type="radio" onChange={({ target:{checked} }) => onChange({target:{name:'status', value:1}})} id="status-1"  checked={1 === values.status} />
                             </div>
 
                             <div className="form-group">
                                 <label htmlFor="status-2"><b>OK</b></label>
-                                <input className="input-checked" type="radio" onChange={({ target:{cheacked} }) => onChange({target:{name:'status', value:2}})} id="status-2"  checked={2 === values.status} />
+                                <input className="input-checked" type="radio" onChange={({ target:{checked} }) => onChange({target:{name:'status', value:5}})} id="status-5"  checked={5 === values.status} />
                             </div>
 
                             <div className="form-group">
                                 <label htmlFor="status-3"><b>Falta de Linhas</b></label>
-                                <input className="input-checked" type="radio" onChange={({ target:{cheacked} }) => onChange({target:{name:'status', value:3}})} id="status-3"  checked={3 === values.status} />
+                                <input className="input-checked" type="radio" onChange={({ target:{checked} }) => onChange({target:{name:'status', value:2}})} id="status-2"  checked={2 === values.status} />
                             </div>
 
                             <div className="form-group">
                                 <label htmlFor="status-4"><b>Falta Aviamento</b></label>
-                                <input className="input-checked" type="radio" onChange={({ target:{cheacked} }) => onChange({target:{name:'status', value:4}})} id="status-4"  checked={4 === values.status} />
+                                <input className="input-checked" type="radio" onChange={({ target:{checked} }) => onChange({target:{name:'status', value:3}})} id="status-3"  checked={3 === values.status} />
                             </div>
 
                             <div className="form-group">
                                 <label htmlFor="status-5"><b>Tonalidade</b></label>
-                                <input className="input-checked" type="radio" onChange={({ target:{cheacked} }) => onChange({target:{name:'status', value:5}})} id="status-5"  checked={5 === values.status} />
+                                <input className="input-checked" type="radio" onChange={({ target:{checked} }) => onChange({target:{name:'status', value:4}})} id="status-4"  checked={4 === values.status} />
                             </div>
 
 

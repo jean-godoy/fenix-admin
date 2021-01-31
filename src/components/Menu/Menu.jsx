@@ -9,7 +9,10 @@ import {
     FiFilePlus,
     FiCheckCircle,
     FiBookOpen,
-    FiBox
+    FiBox,
+    FiSettings,
+    FiStopCircle,
+    FiFileText
 } from "react-icons/fi";
 import './menu.css';
 
@@ -98,7 +101,30 @@ export default props => {
                         </Link>
                     </li>
 
+                    <li className="li-menu">
+                        <Link to="/finalização" className="link-menu">
+                            <FiStopCircle className="icon-menu"  color="#efefef" size="20" />
+                            <span className="span-menu">Finalização</span>
+                        </Link>
+                    </li>
+
                     <div className="menu-hr"></div>
+
+                    <li className="li-menu">
+                        <Link to="" className="link-menu">
+                            <FiFileText className="icon-menu"  color="#efefef" size="20" />
+                            <span className="span-menu">NF-e</span>
+                        </Link>
+                    </li>
+
+                    <div className="menu-hr"></div>
+
+                    <li className="li-menu">
+                        <Link to="/configurações" className="link-menu">
+                            <FiSettings className="icon-menu"  color="#efefef" size="20" />
+                            <span className="span-menu">Configurações</span>
+                        </Link>
+                    </li>
 
                      <li className="li-menu">
                         <Link to="/logout" className="link-menu">
