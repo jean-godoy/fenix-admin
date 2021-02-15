@@ -63,6 +63,10 @@ import EstoqueGet from './pages/Estoque/EstoqueGet';
 import Config from './pages/Config/Config';
 import Status from './pages/Config/Status';
 
+// Finalização
+import Finalizacao from './pages/Finalizacao/Finalizacao';
+import FaccaoRomaneioDescricao from './pages/Finalizacao/FaccaoRomaneioDescricao';
+
 export default props => {
 
     const PrivateRoute = ({ component: Component, ...rest }) => ( <
@@ -140,6 +144,10 @@ export default props => {
                     {/* Configurações */}
                     <PrivateRoute exact path="/configurações" component={Config} />
                     <PrivateRoute exact path="/configurações/status" component={Status} />
+
+                    {/* finalizacao */}
+                    <PrivateRoute exact path="/finalização" component={Finalizacao} />
+                    <PrivateRoute exact path="/finalização/facção-romaneio/:faccao_code/:op" component={FaccaoRomaneioDescricao} />
 
                 </Switch>
             </BrowserRouter>

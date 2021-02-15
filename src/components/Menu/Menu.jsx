@@ -18,6 +18,11 @@ import './menu.css';
 
 export default props => {
 
+    function status(e){
+        e.preventDefault();
+        alert("Rota em construção")
+    }
+
     return (
         <div className="container-menu">
             <header className="header-menu">
@@ -111,7 +116,7 @@ export default props => {
                     <div className="menu-hr"></div>
 
                     <li className="li-menu">
-                        <Link to="" className="link-menu">
+                        <Link to="" className="link-menu" onClick={status}>
                             <FiFileText className="icon-menu"  color="#efefef" size="20" />
                             <span className="span-menu">NF-e</span>
                         </Link>
