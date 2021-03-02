@@ -67,6 +67,9 @@ import Status from './pages/Config/Status';
 import Finalizacao from './pages/Finalizacao/Finalizacao';
 import FaccaoRomaneioDescricao from './pages/Finalizacao/FaccaoRomaneioDescricao';
 
+//Financeiro
+import Financeiro from './pages/Financeiro/Financeiro';
+
 export default props => {
 
     const PrivateRoute = ({ component: Component, ...rest }) => ( <
@@ -148,6 +151,9 @@ export default props => {
                     {/* finalizacao */}
                     <PrivateRoute exact path="/finalização" component={Finalizacao} />
                     <PrivateRoute exact path="/finalização/facção-romaneio/:faccao_code/:op" component={FaccaoRomaneioDescricao} />
+
+                    {/* Financeiro routes */}
+                    <PrivateRoute exact path="/financeiro" component={Financeiro} />
 
                 </Switch>
             </BrowserRouter>

@@ -36,7 +36,8 @@ export default props => {
         const data_string = JSON.stringify(data_values);
         
         api.post('/api/finalizacao/set-status', data_string ).then(({data}) => {
-            alert(data);
+            alert("Status atualizado com sucesso!");
+            return history.push('/finalização');
         }).catch(e => {
             alert("Ocorreu algum erro..");
         });
@@ -57,7 +58,7 @@ export default props => {
                         <ul className="box-nav-ul">
 
                             <li className="box-nav-li">
-                                <Link className="box-nav-link" to="/ordem-producao">Lista O.P.</Link>
+                                <Link className="box-nav-link" to="/finalização">Lista O.P.</Link>
                             </li>
 
                         </ul>
@@ -98,19 +99,19 @@ export default props => {
                             </div>
 
                             <div className="form-group">
-                                <label htmlFor="status-15"><b>Pronto para Embarque</b></label>
-                                <input className="input-checked" type="radio" onClick={({ target: { checked } }) => checked && setStatus(9)} id="status-15" checked={15 === status} />
+                                <label htmlFor="status-15"><b>Tonalidade</b></label>
+                                <input className="input-checked" type="radio" onClick={({ target: { checked } }) => checked && setStatus(15)} id="status-15" checked={15 === status} />
                             </div>
 
                             <div className="form-group">
-                                <label htmlFor="status-5"><b>Tonalidade</b></label>
+                                <label htmlFor="status-5"><b>Pronto para Embarque</b></label>
                                 <input className="input-checked" type="radio" onClick={({ target: { checked } }) => checked && setStatus(16)} id="status-16" checked={16 === status} />
                             </div>
 
 
 
                             <div className="btn-group">
-                                <Link className="button" to="/checking">Cancelar</Link>
+                                <Link className="button" to="/finalização">Cancelar</Link>
                                 <button className="button" type="submit" onClick={handleStatus} >Salvar</button>
                             </div>
 

@@ -25,11 +25,11 @@ export default props => {
      const [number, setNumber] = useState('');
 
      useEffect(() => {
-        api.get(`/employee-id/${id}`).then(({data}) => {
+        api.get(`/employees/get-id/${id}`).then(({data}) => {
             setData(data);
 
-            const dateOut = DateOut(new Date(data.birth_date))
-
+            const dateOut = DateOut(new Date(data.birthDate))
+            console.log(dateOut)
             setDate(mask(unMask(dateOut), ['99/99/9999'] ));
             setCpf(mask(unMask(data.cpf), ['999.999.999-99']));
             setRg(mask(unMask(data.rg), ['99.999.999-9']));
@@ -38,7 +38,7 @@ export default props => {
         }).catch(e => {
             return alert('Nenhum funcionário corresponde está id');
         });
-    });
+    },[]);
 
     function onChange(e) {
         const { name, value } = e.target;
@@ -100,7 +100,7 @@ export default props => {
     const numberChange = e => {
         setNumber(mask(unMask(e.target.value), ['9,99', '99,99', '999,99', '9.999,99', '99.999,99']));
     }
-
+    console.log(date)
     return(
         <>
             <Menu />
@@ -136,7 +136,7 @@ export default props => {
 
                             <div className="form-group">
                                 <label htmlFor=""><b>Nome Completo:</b></label>
-                                <input type="text" className="form-input" name="employee_name" value={data.employee_name} onChange={onChange} required />
+                                <input type="text" className="form-input" name="employeeName" value={data.employeeName} onChange={onChange} required />
                             </div>
 
                             <div className="form-group">

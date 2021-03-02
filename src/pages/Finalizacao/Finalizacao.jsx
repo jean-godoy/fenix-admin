@@ -53,8 +53,8 @@ export default props => {
                                 {data.length && data.map(item => {
                                     return (
                                         <li key={item.id} className={`box-list-li status-${item.status}`}>
-                                            <Link className="box-list-link" to={`/finalização/facção-romaneio/${item.faccaoCode}/${item.ordemProducao}`} >
-                                                <span className="box-list-span"><b>O.P: </b>{item.ordemProducao} </span>
+                                            <Link className="box-list-link" to={`/finalização/facção-romaneio/${item.faccao_code}/${item.ordem_producao}`} >
+                                                <span className="box-list-span"><b>O.P: </b>{item.ordem_producao} </span>
                                             </Link>
                                         </li>
                                     )

@@ -10,14 +10,14 @@ import Header from '../../components/Header/Header';
 export default props => {
 
     const id_user = props.match.params.id;
-    const [user, setUser] = useState([]);
+    const [user, setUser] = useState({});
     const history = useHistory();
 
     useEffect(() => {
         api.get(`/users/get-id/${id_user}`).then(({ data }) => {
             setUser(data);
         })
-    });
+    },[]);
 
     function onChange(e) {
         const { name, value } = e.target;
@@ -28,17 +28,17 @@ export default props => {
         e.preventDefault();
 
         const data_values = {
-            user_name: user.user_name,
-            user_email: user.user_email,
-            user_pass: user.user_pass,
+            user_name:  user.userName,
+            user_email: user.userEmail,
+            user_pass:  user.userPass,
             token: '12345'
         }
-        
+        console.log(data_values)
         const data_string = JSON.stringify(data_values);
 
         api.put(`/users/update/${id_user}`, data_string).then((res) => {
             console.log(res);
-            alert("Usuario "+user.user_name+", editado com sucesso!");
+            alert("Usuario: "+user.user_name+", editado com sucesso!");
             return history.push('/user');
         }).catch((e) => {
             alert("Ops.., Erro ao editar usuario..");
@@ -83,17 +83,17 @@ export default props => {
 
                             <div className="form-group">
                                 <label htmlFor=""><b>Nome Completo:</b></label>
-                                <input name="user_name" type="text" className="form-input" value={user.userName} onChange={onChange} />
+                                <input name="userName" type="text" className="form-input" value={user.userName} onChange={onChange} />
                             </div>
 
                             <div className="form-group">
                                 <label htmlFor=""><b>E-mail:</b></label>
-                                <input name="user_email" type="text" className="form-input" value={user.userEmail} onChange={onChange} />
+                                <input name="userEmail" type="text" className="form-input" value={user.userEmail} onChange={onChange} />
                             </div>
 
                             <div className="form-group">
                                 <label htmlFor=""><b>Senha:</b></label>
-                                <input name="user_pass" type="text" className="form-input" value={user.userPass} onChange={onChange} />
+                                <input name="userPass" type="text" className="form-input" value={user.userPass} onChange={onChange} />
                             </div>
 
                             <div className="btn-group">

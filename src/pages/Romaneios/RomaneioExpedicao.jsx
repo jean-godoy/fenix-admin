@@ -7,6 +7,7 @@ import api from '../../api';
 //components
 import Menu from '../../components/Menu/Menu';
 import Header from '../../components/Header/Header';
+import e from 'cors';
 
 const initialValues = {
     'faccao': ''
@@ -26,26 +27,45 @@ export default props => {
     const [faccao, setfaccao] = useState(initialValues);
     const [seq, setSeq] = useState([]);
     const [generate, setGenerate] = useState('close');
+    const [chekOp, setCheckOp] = useState({});
     const history = useHistory();
 
     useEffect(() => {
 
         const op = prompt("Ordem de Produção: ");
 
-        const ordem_producao = parseInt(op);
-        setOp(ordem_producao);
-        if (ordem_producao !== null || ordem_producao !== "") {
-            api.get(`/romaneios/get-romaneio/${ordem_producao}`).then(({ data }) => {
-                setData(data);
-                setRomaneio(data.romaneio);
-                setGrade(data.grade);
-                setSequencia(data.sequencia_operacional);
-                setFooter(data.footer);
-            }).catch(e => {
-                console.log(data)
-                return alert(e);
-            });
+        async function checkOp(op) {
+            try {
+                const { data } = await api.get(`romaneios/check-op/${op}`);
+
+                if (data != false) {
+                    const ordem_producao = parseInt(data.ordemProducao);
+                    setOp(ordem_producao);
+                    if (ordem_producao !== null || ordem_producao !== "") {
+                        api.get(`/romaneios/get-romaneio/${ordem_producao}`).then(({ data }) => {
+                            setData(data);
+                            setRomaneio(data.romaneio);
+                            setGrade(data.grade);
+                            setSequencia(data.sequencia_operacional);
+                            setFooter(data.footer);
+                        }).catch(e => {
+                            console.log(data)
+                            return alert(e);
+                        });
+                    } 
+                } else {
+                    alert("Ordem de Produção invalida ou enexistente!");
+                    const op = prompt("Ordem de Produção: ");
+                    checkOp(op);
+                }
+
+            } catch (error) {
+                alert("Ocorreu um erro ao buscar oa ordem de produção! /n Se o erro persistir, avise o admin");
+            }
         }
+
+        checkOp(op);
+
     }, []);
 
     function onChange(e) {
@@ -55,7 +75,7 @@ export default props => {
 
     function handleFaccao(e) {
         const { name, value } = e.target;
-        setfaccao({value});
+        setfaccao({ value });
     }
 
     function handleGrade(e) {
@@ -74,11 +94,11 @@ export default props => {
     }
 
     function close() {
-        setfaccao({['faccao']: '' });
+        setfaccao({ ['faccao']: '' });
         setModal('close');
     }
 
-    function closeGenerate(){
+    function closeGenerate() {
         setGenerate('close');
     }
 
@@ -91,7 +111,7 @@ export default props => {
         }
     }
 
-    function handleGenerate(){
+    function handleGenerate() {
 
         const data_values = {
             'faccao_code': faccao,
@@ -101,15 +121,15 @@ export default props => {
         }
 
         const data_string = JSON.stringify(data_values);
-       
-        api.post('/romaneios/gerar-romaneio', data_string).then( ({data}) => {
+
+        api.post('/romaneios/gerar-romaneio', data_string).then(({ data }) => {
             alert('Romaneio Gerado com Sucesso!');
             return history.push('/romaneios');
         }).catch(e => {
             return alert('Erro ao gerar romaneio...');
         });
     }
-    console.log(faccoes)
+    // console.log(faccoes)
     return (
         <>
             <Menu />

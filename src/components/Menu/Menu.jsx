@@ -12,7 +12,8 @@ import {
     FiBox,
     FiSettings,
     FiStopCircle,
-    FiFileText
+    FiFileText,
+    FiTrendingUp
 } from "react-icons/fi";
 import './menu.css';
 
@@ -114,6 +115,13 @@ export default props => {
                     </li>
 
                     <div className="menu-hr"></div>
+
+                    <li className="li-menu">
+                        <Link to="/financeiro" className="link-menu" >
+                            <FiTrendingUp className="icon-menu"  color="#efefef" size="20" />
+                            <span className="span-menu">Financeiro</span>
+                        </Link>
+                    </li>
 
                     <li className="li-menu">
                         <Link to="" className="link-menu" onClick={status}>

@@ -20,7 +20,7 @@ export default props => {
             return alert('Nenhum Romaneio Encontrado!');
         });
     }, []);
-
+    console.log(data)
     return (
         <>
             <Menu />
@@ -80,7 +80,7 @@ export default props => {
                                         <td>{item.quantidade}</td>
                                         <td>{item.semana}</td>
                                         <td>12</td>
-                                        <td>1</td>
+                                        <td>{item.faccao_status}</td>
                                         <Link className="table-link" to={`/romaneios/show/${item.romaneio_code}`}><td><FiMoreHorizontal className="box-body-icon" /></td></Link>
                                     </tr>
                                 );
