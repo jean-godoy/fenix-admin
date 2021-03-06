@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { FiTrendingUp } from "react-icons/fi";
+import { FiCalendar } from "react-icons/fi";
 import api from '../../api';
 
 //components
@@ -47,13 +47,23 @@ export default props => {
                     <div className="box-body">
 
                         <header>
-                            <FiTrendingUp className="box-body-icon" />
-                            <span> > Financeiro</span>
+                            <FiCalendar className="box-body-icon" />
+                            <span> > Tabela de Pagamentos</span>
                         </header>
 
-                        {/* <div className="box-list"> */}
+                        <table id="tabela" className="tabela" bgcolor="#006da4" cellpadding="0" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>Data de Entrega</th>
+                                    <th>Data de Pagamento</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                
+                            </tbody>
+                        </table>
 
-                      
+
                     </div>
 
                 </div>

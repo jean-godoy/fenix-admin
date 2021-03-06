@@ -23,7 +23,7 @@ export default props => {
 
     function onChange(e) {
         const { name, value } = e.target;
-        setData({...data, [name]:value});
+        setData({ ...data, [name]: value });
     }
 
     const handOp = (e) => setOp(e.target.files[0]);
@@ -37,24 +37,36 @@ export default props => {
         formData.append('num_nfe', num_nfe);
         formData.append('num_op', data.num_op);
         formData.append('op_file', op);
-       
-        api.post('/op/upload-op', formData).then(({data}) => {
+
+        api.post('/op/upload-op', formData).then(({ data }) => {
             alert('OK');
             return history.push('/ordem-producao/');
-        }).catch( e => {
-            console.log({e});
-            return alert('Ops, ocorreu algum erro..' + e )
+        }).catch(e => {
+            console.log({ e });
+            return alert('Ops, ocorreu algum erro..' + e)
         });
 
     }
-    
-    return(
+
+    async function checkOp(e) {
+        const op = e.target.value;
+        if (op.length == 5) {
+            const { data } = await api.get(`/romaneios/check-op/${op}`);
+            if(data == false){
+                alert('Romaneio valido')
+            } else {
+                alert('Número de Romaneio já cadastrado!');
+            }
+        }
+    }
+
+    return (
         <>
             <Menu />
             <div className="container">
 
                 <Header />
-                
+
                 <div className="box-main">
 
                     <header>Ordem Produção</header>
@@ -79,12 +91,17 @@ export default props => {
 
                             <div className="form-group">
                                 <label htmlFor=""><b>O.P:</b></label>
-                                <input type="text" className="form-input" name="num_op" onChange={onChange} required />
+                                <input type="text" className="form-input" name="num_op" onChange={onChange} onChange={checkOp} required />
                             </div>
 
                             <div className="form-group">
-                                <label htmlFor=""><b>Arquivo O.P:</b></label>
+                                <label htmlFor=""><b>Romaneio:</b></label>
                                 <input type="file" className="form-input" name="op_file" onChange={handOp} required />
+                            </div>
+
+                            <div className="form-group">
+                                <label htmlFor=""><b>Ficha técnica</b></label>
+                                <input type="file" className="form-input" name="image_file" onChange={handOp} required />
                             </div>
 
                             <div className="btn-group">

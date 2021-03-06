@@ -69,6 +69,7 @@ import FaccaoRomaneioDescricao from './pages/Finalizacao/FaccaoRomaneioDescricao
 
 //Financeiro
 import Financeiro from './pages/Financeiro/Financeiro';
+import TabelaPagametos from './pages/Financeiro/TabelaPagamentos';
 
 export default props => {
 
@@ -154,6 +155,7 @@ export default props => {
 
                     {/* Financeiro routes */}
                     <PrivateRoute exact path="/financeiro" component={Financeiro} />
+                    <PrivateRoute exact path="/tabela-pagamentos" component={TabelaPagametos} />
 
                 </Switch>
             </BrowserRouter>
