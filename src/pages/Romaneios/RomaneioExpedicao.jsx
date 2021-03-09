@@ -2,12 +2,15 @@ import React, { useState, useEffect } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { FiShoppingCart } from "react-icons/fi";
 import api from '../../api';
+import '../../pages/Romaneios/romaneio.css';
 
 
 //components
 import Menu from '../../components/Menu/Menu';
 import Header from '../../components/Header/Header';
-import e from 'cors';
+
+//mask
+import { mask, unMask } from 'remask';
 
 const initialValues = {
     'faccao': ''
@@ -27,7 +30,7 @@ export default props => {
     const [faccao, setfaccao] = useState(initialValues);
     const [seq, setSeq] = useState([]);
     const [generate, setGenerate] = useState('close');
-    const [chekOp, setCheckOp] = useState({});
+    const [number, setNumber] = useState(null);
     const history = useHistory();
 
     useEffect(() => {
@@ -52,7 +55,7 @@ export default props => {
                             console.log(data)
                             return alert(e);
                         });
-                    } 
+                    }
                 } else {
                     alert("Ordem de Produção invalida ou enexistente!");
                     const op = prompt("Ordem de Produção: ");
@@ -74,8 +77,8 @@ export default props => {
     }
 
     function handleFaccao(e) {
-        const { name, value } = e.target;
-        setfaccao({ value });
+        // const { name, value } = e.target;
+        setfaccao( e.target.value );
     }
 
     function handleGrade(e) {
@@ -117,11 +120,12 @@ export default props => {
             'faccao_code': faccao,
             'ordem_producao': op,
             'grade': seq,
-            'sequencia': values
+            'sequencia': values,
+            'valor_faccao': number
         }
 
         const data_string = JSON.stringify(data_values);
-
+        // console.log(data_string)
         api.post('/romaneios/gerar-romaneio', data_string).then(({ data }) => {
             alert('Romaneio Gerado com Sucesso!');
             return history.push('/romaneios');
@@ -129,7 +133,11 @@ export default props => {
             return alert('Erro ao gerar romaneio...');
         });
     }
-    // console.log(faccoes)
+
+    const numberChange = e => {
+        setNumber(mask(unMask(e.target.value), ['9,99', '99,99', '999,99', '9.999,99', '99.999,99']));
+    }
+
     return (
         <>
             <Menu />
@@ -263,11 +271,16 @@ export default props => {
 
                     {/* generate */}
                     <div className={`modal ${generate}`}>
-                        <div className="modal-main">
+                        <div className="modal-gerar-romaneio">
                             <button className="modal-bt-close" onClick={closeGenerate}>X</button>
                             <header className="modal-header">
                                 <b>Gerar Romaneio - O.P: {op} </b>
                             </header>
+
+                            <div className="box-group">
+                                <label htmlFor="valor-faccao" className="valor-faccao-label" >Valor Facção R$:</label>
+                                <input type="text" id="valor-faccao" value={number} placeholder="00,00" name="valor_faccao" className="valor-faccao" onChange={numberChange} />
+                            </div>
 
                             <button className="modal-bt-save" onClick={handleGenerate}>Salvar</button>
                         </div>

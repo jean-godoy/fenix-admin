@@ -91,3 +91,29 @@ colgroup {background:#F60;}
     background-color: #333;
     color: #fff;
 } */
+
+/* ###################  MODAL GERAR ROMANEIO ###################### */
+
+
+.box-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    height: 40px;
+    margin-top: 35px;
+}
+
+.valor-faccao-label {
+    width: 30%;
+    height: 40px;
+    font-size: 1.3em;
+    padding: 7px;
+    text-align: center;
+}
+
+.valor-faccao {
+    width: 70%;
+    height: 40px;
+    padding: 5px;
+}

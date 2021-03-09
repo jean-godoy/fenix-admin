@@ -20,7 +20,7 @@ export default props => {
             return alert('Nenhum Romaneio Encontrado!');
         });
     }, []);
-    console.log(data)
+    // console.log(data)
     return (
         <>
             <Menu />
