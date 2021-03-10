@@ -39,7 +39,7 @@ export default props => {
         formData.append('num_nfe', num_nfe);
         formData.append('num_op', data.num_op);
         formData.append('op_file', op);
-        formData.append('image_file', image);
+        formData.append('ficha_tecnica', image);
 
         api.post('/op/upload-op', formData).then(({ data }) => {
             alert('OK');
@@ -104,7 +104,7 @@ export default props => {
 
                             <div className="form-group">
                                 <label htmlFor=""><b>Ficha técnica</b></label>
-                                <input type="file" className="form-input" name="image_file" onChange={handImage} required />
+                                <input type="file" className="form-input" name="ficha_tecnica" onChange={handImage} required />
                             </div>
 
                             <div className="btn-group">
