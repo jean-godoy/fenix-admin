@@ -19,6 +19,7 @@ export default props => {
     const [data, setData] = useState(initialValues);
 
     const [op, setOp] = useState(null);
+    const [image, setImage] = useState(null);
     const history = useHistory();
 
     function onChange(e) {
@@ -28,6 +29,7 @@ export default props => {
 
     const handOp = (e) => setOp(e.target.files[0]);
 
+    const handImage = (e) => setImage(e.target.files[0]);
 
     function sendData(e) {
         e.preventDefault();
@@ -37,6 +39,7 @@ export default props => {
         formData.append('num_nfe', num_nfe);
         formData.append('num_op', data.num_op);
         formData.append('op_file', op);
+        formData.append('image_file', image);
 
         api.post('/op/upload-op', formData).then(({ data }) => {
             alert('OK');
@@ -101,7 +104,7 @@ export default props => {
 
                             <div className="form-group">
                                 <label htmlFor=""><b>Ficha técnica</b></label>
-                                <input type="file" className="form-input" name="image_file" onChange={handOp} required />
+                                <input type="file" className="form-input" name="image_file" onChange={handImage} required />
                             </div>
 
                             <div className="btn-group">
