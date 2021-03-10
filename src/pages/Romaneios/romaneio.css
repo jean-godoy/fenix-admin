@@ -94,6 +94,17 @@ colgroup {background:#F60;}
 
 /* ###################  MODAL GERAR ROMANEIO ###################### */
 
+.modal-gerar-romaneio {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    align-items: center;
+    width: 720px;
+    height: 250px;
+    margin: 40px auto;
+    background-color: #efefef;
+    border-radius: 6px;
+}
 
 .box-group {
     display: flex;

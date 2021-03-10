@@ -417,18 +417,6 @@ li {
       border-radius: 6px;
   }
 
-  .modal-gerar-romaneio {
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    align-items: center;
-    width: 720px;
-    height: 350px;
-    margin: 40px auto;
-    background-color: #efefef;
-    border-radius: 6px;
-}
-
   .modal-bt-close {
       position: absolute;
       top: -10px;

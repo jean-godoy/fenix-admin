@@ -37,6 +37,10 @@ export default props => {
 
         const op = prompt("Ordem de Produção: ");
 
+        if(op === null){
+            return history.push('/romaneios');
+        }
+
         async function checkOp(op) {
             try {
                 const { data } = await api.get(`romaneios/check-op/${op}`);
@@ -59,6 +63,9 @@ export default props => {
                 } else {
                     alert("Ordem de Produção invalida ou enexistente!");
                     const op = prompt("Ordem de Produção: ");
+                    if(op === null){
+                        return history.push('/romaneios');
+                    }
                     checkOp(op);
                 }
 
