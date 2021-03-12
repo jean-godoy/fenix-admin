@@ -1,7 +1,7 @@
 
 
-td, th, tfoot {border:solid 1px #555; padding:5px;}
-th {background-color:#999;}
+/* td, th, tfoot {border:solid 1px #555; padding:5px;}
+th {background-color:#999;} */
 /* caption {font-size:x-large;}
 colgroup {background:#F60;}
 .coluna1 {background:#F66;}
@@ -20,6 +20,8 @@ colgroup {background:#F60;}
     margin: 10px auto;
     width: 1240px;
     font-size: 12px;
+    border:solid 1px #555; padding:5px;
+
 }
 
 

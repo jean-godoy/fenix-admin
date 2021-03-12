@@ -1,4 +1,92 @@
-table, td, th, tfoot {
+ .box-container-table {
+     display: flex;
+     justify-content: space-between;
+     width: 100%;
+     min-height: 500px;
+     /* background-color: #efefef; */
+ }
+ 
+ .tabela-pagamentos {
+     margin: 20px;
+     display: flex;
+     flex-direction: column;
+     justify-content: flex-start;
+     align-items: center;
+     width: 600px;
+     /* background-color: #efefef; */
+ }
+
+.pagamentos-thead {
+    width: 100%;
+}
+
+.pagamentos-thead tr th, td {
+    width: 300px;
     border:solid 1px #000; padding:5px;
-    background-color: darkorange;
+
+}
+
+.box-add-pagamento {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 400px;
+    height: 200px;
+    border: 1px solid #333;
+    margin: 20px auto;
+    border-radius: 6px;
+}
+
+.pagamento-head {
+    width: 100%;
+    height: 35px;
+    padding: 6px;
+    border-bottom: 1px solid #333;
+    margin-bottom: 20px;
+}
+
+.pagamento-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 5px;
+    font-size: 1.1em;
+}
+
+.pagamento-group > input {
+    width: 250px;
+    height: 30px;
+    padding: 5px 10px;
+}
+
+.pagamento-btn {
+    position: absolute;
+    right: 20px;
+    bottom: 15px;
+    width: 150px;
+    height: 35px;
+    background-color: rgb(8, 216, 98);
+    border-style: none;
+    border-radius: 6px;
+    font-size: 1.1em;
+}
+
+.pagamento-btn:hover {
+    cursor: pointer;
+    background-color: seagreen;
+    color: snow;
+}
+
+.error {
+    width: 600px;
+    height: 50px;
+    margin: 20px;
+    padding: 10px;
+    border: 2px solid darkred;
+    border-radius: 6px;
+    background-color: tomato;
+    color: #fff;
+    font-size: 1.3em;
 }
