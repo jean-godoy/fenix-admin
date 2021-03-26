@@ -78,11 +78,6 @@ export default props => {
                         <form onSubmit={onSubmit} className="box-form">
 
                             <div className="form-group">
-
-                                <label htmlFor=""><b>Status da O.P.</b></label>
-                                <input type="text" className="form-input" name="os" value={values.os} onChange={onChange}/>
-                            </div>
-                            <div className="form-group">
                                 <label htmlFor="status-1"><b>Aguardando Verificação</b></label>
                                 <input className="input-checked" type="radio" onChange={({ target:{checked} }) => onChange({target:{name:'status', value:1}})} id="status-1"  checked={1 === values.status} />
                             </div>

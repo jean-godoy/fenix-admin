@@ -144,7 +144,7 @@ export default props => {
     const numberChange = e => {
         setNumber(mask(unMask(e.target.value), ['9,99', '99,99', '999,99', '9.999,99', '99.999,99']));
     }
-
+    console.log(seq)
     return (
         <>
             <Menu />

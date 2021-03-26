@@ -8,26 +8,16 @@ import api from '../../api';
 import Menu from '../../components/Menu/Menu';
 import Header from '../../components/Header/Header';
 
-const initialValues = {
-    num_nfe: '',
-    num_op: ''
-}
-
 export default props => {
 
     const num_nfe = props.match.params.id;
-    const [data, setData] = useState(initialValues);
-
+    const [data, setData] = useState({});
     const [op, setOp] = useState(null);
     const [image, setImage] = useState(null);
+    const [opFile, setOpFile] = useState(null);
     const history = useHistory();
 
-    function onChange(e) {
-        const { name, value } = e.target;
-        setData({ ...data, [name]: value });
-    }
-
-    const handOp = (e) => setOp(e.target.files[0]);
+    const handOp = (e) => setOpFile(e.target.files[0]);
 
     const handImage = (e) => setImage(e.target.files[0]);
 
@@ -37,12 +27,12 @@ export default props => {
         const formData = new FormData();
 
         formData.append('num_nfe', num_nfe);
-        formData.append('num_op', data.num_op);
-        formData.append('op_file', op);
+        formData.append('num_op', op);
+        formData.append('op_file', opFile);
         formData.append('ficha_tecnica', image);
-
+       
         api.post('/op/upload-op', formData).then(({ data }) => {
-            alert('OK');
+            alert(data.data);
             return history.push('/ordem-producao/');
         }).catch(e => {
             console.log({ e });
@@ -53,16 +43,17 @@ export default props => {
 
     async function checkOp(e) {
         const op = e.target.value;
-        if (op.length == 5) {
+        if (op.length == 6) {
             const { data } = await api.get(`/romaneios/check-op/${op}`);
             if(data == false){
-                alert('Romaneio valido')
+                alert('Romaneio valido');
+                setOp(op);
             } else {
                 alert('Número de Romaneio já cadastrado!');
             }
         }
     }
-
+    
     return (
         <>
             <Menu />
@@ -94,7 +85,7 @@ export default props => {
 
                             <div className="form-group">
                                 <label htmlFor=""><b>O.P:</b></label>
-                                <input type="text" className="form-input" name="num_op" onChange={onChange} onChange={checkOp} required />
+                                <input type="text" className="form-input" name="num_op" onChange={checkOp} required />
                             </div>
 
                             <div className="form-group">

@@ -20,6 +20,27 @@ export default props => {
             return alert('Nenhum Romaneio Encontrado!');
         });
     }, []);
+
+    const List = () => {
+        if (data.length) {
+            return (
+                <ul className="list-ul">
+                    {data.length && data.map(item => {
+                        return (
+                            <li key={item.id} className="list-li">
+                                <Link to={`/romaneio/${item.nfe_number}`} className="list-link">
+                                    <strong>NF-e:</strong> {item.nfe_number}
+                                </Link>
+                            </li>
+                        );
+                    })}
+                </ul>
+            );
+        }
+
+        return <div className="alert">Nehuma NF-e Liberada</div>
+    }
+
     // console.log(data)
     return (
         <>
@@ -50,48 +71,15 @@ export default props => {
 
                         <header>
                             <FiFolderPlus className="box-body-icon" />
-                            <span> > Selecione um Romaneio</span>
+                            <span> > Lista de NF-e</span>
                         </header>
 
-                        {/* <div className="box-list"> */}
-
-                        <table className="box-table">
-                            <tr>
-                                <td className="table-n-controle"> <b>N.C.</b> </td>
-                                <td className="table-faccao"><b>Facção</b></td>
-                                <td className="table-ref"><b>REF</b></td>
-                                <td className="table-desc"><b>Descrição</b></td>
-                                <td className="table-op"><b>OP</b></td>
-                                <td className="table-qnt"><b>QNT</b></td>
-                                <td className="table-semana"><b>Semana</b></td>
-                                <td className="table-dias"><b>Dias em Prod.</b></td>
-                                <td className="table-status"><b>Status</b></td>
-                                <td className="table-more"><FiMoreHorizontal className="box-body-icon" color="#efefef" /></td>
-                            </tr>
-
-                            {data.length && data.map(item => {
-                                return (
-                                    <tr>
-                                        <td>{item.id}</td>
-                                        <td>{item.faccao_name}</td>
-                                        <td>{item.referencia}</td>
-                                        <td>{item.descricao_servico}</td>
-                                        <td>{item.ordem_producao}</td>
-                                        <td>{item.quantidade}</td>
-                                        <td>{item.semana}</td>
-                                        <td>12</td>
-                                        <td>{item.faccao_status}</td>
-                                        <Link className="table-link" to={`/romaneios/show/${item.romaneio_code}`}><td><FiMoreHorizontal className="box-body-icon" /></td></Link>
-                                    </tr>
-                                );
-                            })}
-
-                        </table>
-
+                        <div className="box-list">
+                            <List />
+                        </div>
+                        {/* end box list  */}
                     </div>
-
                 </div>
-
             </div>
         </>
     );

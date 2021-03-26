@@ -108,9 +108,9 @@ export default props => {
                     </li>
 
                     <li className="li-menu">
-                        <Link to="/finalização" className="link-menu">
+                        <Link to="/finalizados" className="link-menu">
                             <FiStopCircle className="icon-menu"  color="#efefef" size="20" />
-                            <span className="span-menu">Finalização</span>
+                            <span className="span-menu">Finalizados</span>
                         </Link>
                     </li>
 

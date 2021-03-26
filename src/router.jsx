@@ -54,6 +54,7 @@ import GradeAdd from './pages/OrdemProducao/AdinionarGrade';
 //Romaneios
 import Romaneios from './pages/Romaneios/Romaneios';
 import RomaneioExpedicao from './pages/Romaneios/RomaneioExpedicao';
+import RomaneioId from './pages/Romaneios/RomaneioId';
 
 //Estoque
 import Estoque from './pages/Estoque/Estoque';
@@ -70,6 +71,8 @@ import FaccaoRomaneioDescricao from './pages/Finalizacao/FaccaoRomaneioDescricao
 //Financeiro
 import Financeiro from './pages/Financeiro/Financeiro';
 import TabelaPagametos from './pages/Financeiro/TabelaPagamentos';
+import Finalizados from './pages/Financeiro/Finalizados';
+import FinalizadosList from './pages/Financeiro/FinalizadosList';
 
 export default props => {
 
@@ -139,6 +142,7 @@ export default props => {
                     {/* Romaneios Route */}
                     <PrivateRoute exact path="/romaneios" component={Romaneios} />
                     <PrivateRoute exact path="/romaneio/expedicao" component={RomaneioExpedicao} />
+                    <PrivateRoute exact path="/romaneio/:nfe" component={RomaneioId} />
                    
 
                     {/* Estoque Route */}
@@ -150,12 +154,14 @@ export default props => {
                     <PrivateRoute exact path="/configurações/status" component={Status} />
 
                     {/* finalizacao */}
-                    <PrivateRoute exact path="/finalização" component={Finalizacao} />
+                    <PrivateRoute exact path="/finalizados" component={Finalizacao} />
                     <PrivateRoute exact path="/finalização/facção-romaneio/:faccao_code/:op" component={FaccaoRomaneioDescricao} />
 
                     {/* Financeiro routes */}
                     <PrivateRoute exact path="/financeiro" component={Financeiro} />
                     <PrivateRoute exact path="/tabela-pagamentos" component={TabelaPagametos} />
+                    <PrivateRoute exact path="/financeiro-finalizados" component={Finalizados} />
+                    <PrivateRoute exact path="/financeiro/finalizados-lista/:nfe" component={FinalizadosList} />
 
                 </Switch>
             </BrowserRouter>

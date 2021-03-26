@@ -11,6 +11,9 @@ import Header from '../../components/Header/Header';
 //mask
 import { mask, unMask } from 'remask';
 
+//date out
+import DateOut from '../../components/Date/DateOut';
+
 export default props => {
 
     const [data, setData] = useState([]);
@@ -41,16 +44,23 @@ export default props => {
 
         const data_string = JSON.stringify(data_value);
         
-        api.post('/financeiro/adicionar-pagamento', data_string).then( ({data}) => {
+        api.post('/financeiro/adicionar-pagamento', data_string).then(({ data }) => {
             alert(data)
-        }).catch( e => {
+        }).catch(e => {
             alert('Ocorreu algum erro ao salvar o registro!');
-        })
+        });
     }
+
+    function explodeData(data){
+        const dateExplode = data.split("T");
+        return dateExplode[0]
+    }
+
+    console.log(explodeData("2021-01-13T00:00:00+00:00"))
 
     function Table() {
         // console.log(data)
-        if(data.error === false){
+        if (data.error === false) {
             return <div className="error"><strong>Nenhuma data de pagamento cadastrada!</strong></div>
         }
 
@@ -63,20 +73,21 @@ export default props => {
                     </tr>
                 </thead>
                 <tbody className="pagamentos-thead">
-                    <tr>
-                        <td>
-                            17/12/2021
-                                    </td>
-                        <td>
-                            23/12/2021
-                                    </td>
+                    <tr className="pagamentos-tr">
+                        {data.map(item => {
+                            let entrega = new Date(item.dataEntrega).toLocaleDateString()
+                            let pagamento = new Date(item.dataPagamento).toLocaleDateString();
+                            return <> <td>{entrega}</td>  <td>{pagamento}</td> </>
+                        })}
+                        {/* <td>12/12/1212</td>  <td>12/12/1212</td>
+                        <td>12/12/1212</td>  <td>12/12/1212</td> */}
                     </tr>
                 </tbody>
             </table>
         );
 
     }
-
+    console.log(data)
     return (
         <>
             <Menu />
@@ -97,6 +108,10 @@ export default props => {
 
                             <li className="box-nav-li">
                                 <Link className="box-nav-link" to="/tabela-pagamentos">Tabela de Pagamentos</Link>
+                            </li>
+
+                             <li className="box-nav-li">
+                                <Link className="box-nav-link" to="/financeiro-finalizados">Finalizados</Link>
                             </li>
 
                         </ul>

@@ -13,13 +13,35 @@ export default props => {
     const [data, setData] = useState([]);
 
     useEffect(() => {
-        api.get('/api/finalizacao/get-all').then(({data}) => {
+        api.get('/api/finalizacao/get-all').then(({ data }) => {
             setData(data);
         }).catch(e => {
             return alert('Nenhuma NF-e Liberada!');
         });
-    },[]);
-    console.log(data)
+    }, []);
+
+    function HandleList() {
+        if (data > 0) {
+            return (
+                <ul className="box-list-ul">
+                    {data.map(item => {
+                        return (
+                            <li key={item.id} className={`box-list-li status-${item.status}`}>
+                                <Link className="box-list-link" to={`/finalização/facção-romaneio/${item.faccao_code}/${item.ordem_producao}`} >
+                                    <span className="box-list-span"><b>O.P: </b>{item.ordem_producao} </span>
+                                </Link>
+                            </li>
+                        )
+                    })}
+                </ul>
+            )
+        } 
+           
+        return <div className="alert">Nenhuma dado cadastrado!</div>
+    
+    }
+
+    // console.log(data)
     return (
         <>
             <Menu />
@@ -49,17 +71,7 @@ export default props => {
                         </header>
 
                         <div className="box-list">
-                            <ul className="box-list-ul">
-                                {data.length && data.map(item => {
-                                    return (
-                                        <li key={item.id} className={`box-list-li status-${item.status}`}>
-                                            <Link className="box-list-link" to={`/finalização/facção-romaneio/${item.faccao_code}/${item.ordem_producao}`} >
-                                                <span className="box-list-span"><b>O.P: </b>{item.ordem_producao} </span>
-                                            </Link>
-                                        </li>
-                                    )
-                                })}
-                            </ul>
+                            <HandleList />
                         </div>
 
                     </div>

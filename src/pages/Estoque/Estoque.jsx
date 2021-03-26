@@ -41,7 +41,7 @@ export default props => {
             return alert('Nenhum romaneio corresponde a essa o.p.');
         });
     }
-    console.log(data);
+    // console.log(data);
     return (
         <>
             <Menu />

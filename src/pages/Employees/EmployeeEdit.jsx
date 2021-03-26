@@ -29,7 +29,6 @@ export default props => {
             setData(data);
 
             const dateOut = DateOut(new Date(data.birthDate))
-            console.log(dateOut)
             setDate(mask(unMask(dateOut), ['99/99/9999'] ));
             setCpf(mask(unMask(data.cpf), ['999.999.999-99']));
             setRg(mask(unMask(data.rg), ['99.999.999-9']));

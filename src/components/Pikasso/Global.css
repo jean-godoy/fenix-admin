@@ -513,3 +513,41 @@ li {
 .form-group {
 
 }
+
+/* ##################### LIST #################### */
+
+.list-ul {
+    width: 100%;
+}
+
+.list-li{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    height: 35px;
+    background-color: #efefef;
+}
+
+.list-link {
+    width: 100%;
+    text-align: left;
+    text-decoration: none;
+    padding: 0 15px;
+    color: #333;
+    display: block;
+}
+
+.td-alert {
+    background-color: yellow;
+}
+
+.green {
+    background-color: rgba(157, 229, 12, 0.422);
+}
+
+.yellow {
+    background-color: rgba(241, 221, 7, 0.572);
+}
+
+
