@@ -79,8 +79,6 @@ export default props => {
                             let pagamento = new Date(item.dataPagamento).toLocaleDateString();
                             return <> <td>{entrega}</td>  <td>{pagamento}</td> </>
                         })}
-                        {/* <td>12/12/1212</td>  <td>12/12/1212</td>
-                        <td>12/12/1212</td>  <td>12/12/1212</td> */}
                     </tr>
                 </tbody>
             </table>

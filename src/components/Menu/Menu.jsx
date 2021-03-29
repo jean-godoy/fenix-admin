@@ -107,12 +107,12 @@ export default props => {
                         </Link>
                     </li>
 
-                    <li className="li-menu">
+                    {/* <li className="li-menu">
                         <Link to="/finalizados" className="link-menu">
                             <FiStopCircle className="icon-menu"  color="#efefef" size="20" />
                             <span className="span-menu">Finalizados</span>
                         </Link>
-                    </li>
+                    </li> */}
 
                     <div className="menu-hr"></div>
 

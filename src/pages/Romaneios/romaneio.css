@@ -130,3 +130,34 @@ colgroup {background:#F60;}
     height: 40px;
     padding: 5px;
 }
+
+
+/* ############ SELECT ALL ##################### */
+
+.box-select-all {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    height: 40px;
+    padding: 10px 15px;
+}
+
+.box-select-all > input {
+    margin-right: 20px;
+}
+
+
+/* ################## WARNING ################# */
+
+.warning {
+    margin: 50px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60%;
+    height: 100px;
+    border-radius: 6px;
+    background-color: rgb(236, 236, 152);
+    font-size: 1.5em;
+}
