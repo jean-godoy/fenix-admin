@@ -9,6 +9,8 @@ import './romaneio.css';
 import Menu from '../../components/Menu/Menu';
 import Header from '../../components/Header/Header';
 
+import dateDiff from '../../components/Date/DateDiff';
+
 export default props => {
 
     const [data, setData] = useState([]);
@@ -21,7 +23,7 @@ export default props => {
             return alert('Nenhum Romaneio Encontrado!');
         });
     }, []);
-    // console.log(data["ordem_producao"])
+    // console.log(data)
     return (
         <>
             <Menu />
@@ -51,7 +53,7 @@ export default props => {
 
                         <header>
                             <FiFolderPlus className="box-body-icon" />
-                            <span> > Romaneios referentes a NF-e: </span>
+                            <span> > Romaneios referentes a NF-e: <b>{nfe}</b> </span>
                         </header>
 
                         {/* <div className="box-list"> */}
@@ -70,14 +72,14 @@ export default props => {
                                 {/* <td className="table-more"><FiMoreHorizontal className="box-body-icon" color="#efefef" /></td> */}
                             </tr>
 
-                            {data.length && data.map(item => {
+                            {data.map(item => {
                                 let faccao_status = item.faccao_status;
                                 let style = "yellow";
-                                
-                                if(faccao_status){
+
+                                if (faccao_status) {
                                     style = "green"
                                 }
-                                
+
                                 return (
                                     <tr>
                                         <td className={` ${style}`}>{item.id}</td>
@@ -87,7 +89,7 @@ export default props => {
                                         <td className={`${style}`}>{item.ordem_producao}</td>
                                         <td className={`${style}`}>{item.quantidade}</td>
                                         <td className={`${style}`}>{item.semana}</td>
-                                        <td className={`${style}`}>12</td>
+                                        <td className={`${style}`}>{dateDiff(item.iniciado)}</td>
                                         <td className={`${style}`}>{item.faccao_status}</td>
                                         {/* <Link className="table-link" to={`/romaneios/show/${item.romaneio_code}`}><td><FiMoreHorizontal className="box-body-icon" /></td></Link> */}
                                     </tr>
