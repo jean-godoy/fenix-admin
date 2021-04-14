@@ -14,11 +14,15 @@ import { mask, unMask } from 'remask';
 //date out
 import DateOut from '../../components/Date/DateOut';
 
+//moment
+import Moment from 'react-moment';
+
 export default props => {
 
     const [data, setData] = useState([]);
     const [entrega, setEntrega] = useState('');
     const [pagamento, setPagamento] = useState('');
+    const dateOut = DateOut(new Date());
 
     useEffect(() => {
         api.get('/financeiro/show').then(({ data }) => {
@@ -43,7 +47,7 @@ export default props => {
         }
 
         const data_string = JSON.stringify(data_value);
-        
+
         api.post('/financeiro/adicionar-pagamento', data_string).then(({ data }) => {
             alert(data)
         }).catch(e => {
@@ -51,12 +55,12 @@ export default props => {
         });
     }
 
-    function explodeData(data){
-        const dateExplode = data.split("T");
-        return dateExplode[0]
+    function explodeData(data) {
+        const date = data.split("T");
+        return date[0];
     }
 
-    console.log(explodeData("2021-01-13T00:00:00+00:00"))
+
 
     function Table() {
         // console.log(data)
@@ -75,9 +79,13 @@ export default props => {
                 <tbody className="pagamentos-thead">
                     <tr className="pagamentos-tr">
                         {data.map(item => {
-                            let entrega = new Date(item.dataEntrega).toLocaleDateString()
-                            let pagamento = new Date(item.dataPagamento).toLocaleDateString();
-                            return <> <td>{entrega}</td>  <td>{pagamento}</td> </>
+                            console.log(explodeData(item.dataEntrega))
+                            return (
+                                <>
+                                    <td><Moment format="DD/MM/YYYY">{explodeData(item.dataEntrega)}</Moment></td>
+                                    <td><Moment format="DD/MM/YYYY">{explodeData(item.dataPagamento)}</Moment></td>
+                                </>
+                            )
                         })}
                     </tr>
                 </tbody>
@@ -85,7 +93,7 @@ export default props => {
         );
 
     }
-    console.log(data)
+
     return (
         <>
             <Menu />
@@ -108,7 +116,7 @@ export default props => {
                                 <Link className="box-nav-link" to="/tabela-pagamentos">Tabela de Pagamentos</Link>
                             </li>
 
-                             <li className="box-nav-li">
+                            <li className="box-nav-li">
                                 <Link className="box-nav-link" to="/financeiro-finalizados">Finalizados</Link>
                             </li>
 

@@ -4,13 +4,6 @@ export default function (date) {
         return " - ";
     }
 
-    // var d = new Date(),
-    //     month = '' + (d.getMonth() + 1),
-    //     day = '' + d.getDate(),
-    //     year = d.getFullYear();
-
-    // let dateNow = [year, month, day].join('-');
-
     const now = new Date(); // Data de hoje
     const past = new Date(date); // Outra data no passado
     const diff = Math.abs(now.getTime() - past.getTime()); // Subtrai uma data pela outra

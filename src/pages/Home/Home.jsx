@@ -17,9 +17,26 @@ export default props => {
 
                 <div className="box-main">
 
-                    <header><b>Home</b></header>
+                    <header><b>Dashboard</b></header>
 
-                    
+                    <div className="box-dashboard">
+
+                        <div className="box-romaneios-quantidade bs">
+                            <div className="dash-header">
+                                <h3>Romaneios</h3>
+                            </div>
+                            <div className="dash-group">
+                                <b>Total:</b> 580
+                            </div>
+                            <div className="dash-group">
+                                <b>Expedição:</b> 380
+                            </div>
+                            <div className="dash-group">
+                                <b>Finalizados:</b> 200
+                            </div>
+                        </div>
+
+                    </div>
 
                 </div>
                

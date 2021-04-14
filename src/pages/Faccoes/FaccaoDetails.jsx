@@ -14,6 +14,7 @@ export default props => {
 
     const id = props.match.params.id;
     const [data, setData] = useState([]);
+    const [faccaoCode, setFaccaoCode] = useState(null);
 
     //maskers
     const [phone, setPhone] = useState('');
@@ -22,13 +23,14 @@ export default props => {
     useEffect(() => {
         api.get(`/faccoes/get-id/${id}`).then(({ data }) => {
             setData(data);
+            setFaccaoCode(data.faccaoCode);
             setCpf(mask(unMask(data.cpf), ['999.999.999-99']));
             setPhone(mask(unMask(data.phone), ['(99) 9999-9999', '(99) 9 9999-9999']));
         }).catch(e => {
             return alert('Nenhuma Faccção corresponde está id');
         });
     },[]);
-
+    
     return (
         <>
             <Menu />
@@ -48,7 +50,7 @@ export default props => {
                             </li>
 
                             <li className="box-nav-li">
-                                <Link className="box-nav-link" to="faccao-add">Adicionar Facção</Link>
+                                <Link className="box-nav-link" to={`/faccoes/dados-bancarios/${faccaoCode}`}>Dados Bancarios</Link>
                             </li>
 
                         </ul>

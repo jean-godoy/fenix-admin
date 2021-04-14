@@ -69,7 +69,7 @@ export default props => {
     };
 
     const cpfChange = e => {
-        setCpf(mask(unMask(e.target.value), ['999.999.999-99']));
+        setCpf(mask(unMask(e.target.value), ['999.999.999-99', '99.999.999/9999-99']));
     };
 
     const phoneChange = e => {
