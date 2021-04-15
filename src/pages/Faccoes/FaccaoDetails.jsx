@@ -53,6 +53,10 @@ export default props => {
                                 <Link className="box-nav-link" to={`/faccoes/dados-bancarios/${faccaoCode}`}>Dados Bancarios</Link>
                             </li>
 
+                            <li className="box-nav-li">
+                                <Link className="box-nav-link" to={`/faccoes/forma-pagamento/${faccaoCode}`}>Forma de Pagamento</Link>
+                            </li>
+
                         </ul>
                     </nav>
 

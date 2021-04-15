@@ -1,0 +1,12 @@
+.data-group-span > label{
+    margin-left: 20px;
+}
+
+.alert {
+    background-color: rgba(227, 227, 18, 0.545);
+    padding: 15px 10px;
+}
+
+.button {
+    margin-left: 20px;
+}

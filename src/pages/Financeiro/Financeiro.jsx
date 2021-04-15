@@ -2,14 +2,33 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { FiTrendingUp } from "react-icons/fi";
 import api from '../../api';
+import './financeiro.css'
 
 //components
 import Menu from '../../components/Menu/Menu';
 import Header from '../../components/Header/Header';
 
+//services
+import { teste, Financeiro } from './../../services/financeiro_service';
+
 export default props => {
 
     const [data, setData] = useState([]);
+
+    const months = [
+        { id: 1, month: "Janeiro" },
+        { id: 2, month: "Fevereiro" },
+        { id: 3, month: "Março" },
+        { id: 4, month: "Abril" },
+        { id: 5, month: "Maio" },
+        { id: 6, month: "Junho" },
+        { id: 7, month: "Julho" },
+        { id: 8, month: "Agosto" },
+        { id: 9, month: "Setembro" },
+        { id: 10, month: "Outubro" },
+        { id: 11, month: "Novembro" },
+        { id: 12, month: "Dezembro" }
+    ]
 
     useEffect(() => {
         api.get('/romaneios/list').then(({ data }) => {
@@ -18,6 +37,25 @@ export default props => {
             return alert('Nenhum Romaneio Encontrado!');
         });
     }, []);
+
+    const ButtonList = () => {
+
+        return (
+            <ul>
+                {months.map(item => (
+                    <li className="month-li" key={item.id}>
+                        <button className="month-button" value={item.id} onClick={handleButton} >{item.month}</button>
+                    </li>
+                ))}
+            </ul>
+        )
+    }
+
+    async function handleButton (e) {
+        const res = await Financeiro();
+        console.log(res.data)
+    };
+
     // console.log(data)
     return (
         <>
@@ -55,9 +93,14 @@ export default props => {
                             <span> > Financeiro</span>
                         </header>
 
-                        {/* <div className="box-list"> */}
+                        <div className="box-month-list">
+                            <div className="month-title">
+                                <h3>Selecione um mês</h3>
+                            </div>
+                            <ButtonList />
+                        </div>
 
-                      
+
                     </div>
 
                 </div>

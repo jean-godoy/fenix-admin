@@ -1,0 +1,20 @@
+.box-month-list {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 15px 10px;
+}
+
+.month-title {
+    margin-bottom: 15px;
+}
+
+.month-button {
+    margin-bottom: 10px;
+    width: 500px;
+    height: 40px;
+    font-size: 18px;
+    background-color: #B0E0E6;
+}

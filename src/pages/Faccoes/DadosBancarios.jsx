@@ -79,9 +79,13 @@ export default props => {
                                 <Link className="box-nav-link" to="/faccoes">Voltar</Link>
                             </li>
 
-                            {/* <li className="box-nav-li">
-                                <Link className="box-nav-link" to="faccoes/dados-bancarios">Dados Bancarios</Link>
-                            </li> */}
+                            <li className="box-nav-li">
+                                <Link className="box-nav-link" to={`/faccoes/dados-bancarios/${faccao_code}`}>Dados Bancarios</Link>
+                            </li>
+
+                            <li className="box-nav-li">
+                                <Link className="box-nav-link" to={`/faccoes/forma-pagamento/${faccao_code}`}>Forma de Pagamento</Link>
+                            </li>
 
                         </ul>
                     </nav>
@@ -90,7 +94,7 @@ export default props => {
 
                         <header>
                             <FiUsers className="box-body-icon" />
-                            <span> > Dados da Facção: {(data !== null) ? data.banco : "Cadastrar Dados Bancários"}</span>
+                            <span> > Dados do Banco: {(data !== null) ? data.banco : "Cadastrar Dados Bancários"}</span>
                         </header>
 
                         {data !== null && (

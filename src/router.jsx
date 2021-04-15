@@ -41,6 +41,7 @@ import Faccoes from './pages/Faccoes/Faccaoes';
 import FaccaoAdd from './pages/Faccoes/FaccaoAdd';
 import FaccaoDetails from './pages/Faccoes/FaccaoDetails';
 import DadosBancarios from './pages/Faccoes/DadosBancarios';
+import FormaPagamento from './pages/Faccoes/FormaPagamento';
 
 //checking
 import Cheking from './pages/Cheking/Checking';
@@ -130,6 +131,7 @@ export default props => {
                     <PrivateRoute exact path="/faccao-add" component={FaccaoAdd} />
                     <PrivateRoute exact path="/faccao-details/:id" component={FaccaoDetails} />
                     <PrivateRoute exact path="/faccoes/dados-bancarios/:faccao_code" component={DadosBancarios} />
+                    <PrivateRoute exact path="/faccoes/forma-pagamento/:faccao_code" component={FormaPagamento} />
 
                     {/* Checking Router */}
                     <PrivateRoute exact path="/cheking" component={Cheking} />
