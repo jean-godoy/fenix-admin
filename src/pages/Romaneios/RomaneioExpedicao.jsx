@@ -19,7 +19,7 @@ const initialValues = {
 export default props => {
 
     const [op, setOp] = useState([]);
-    const [values, setValues] = useState({});
+    const [values, setValues] = useState(null);
     const [data, setData] = useState([]);
     const [romaneio, setRomaneio] = useState([]);
     const [grade, setGrade] = useState([]);
@@ -28,17 +28,19 @@ export default props => {
     const [modal, setModal] = useState('close');
     const [faccoes, setFaccoes] = useState([]);
     const [faccao, setfaccao] = useState(initialValues);
-    const [seq, setSeq] = useState([]);
+    const [seq, setSeq] = useState(null); //seuqencia das grades selecionadas
     const [generate, setGenerate] = useState('close');
     const [number, setNumber] = useState(null);
     const history = useHistory();
+    const [gradeQuantidade, setGradeQuantidade] = useState(null);
+    const [entrega, setEntrega] = useState(null);
 
     let model = [];
 
     useEffect(() => {
 
         const op = prompt("Ordem de Produção: ");
-        // const op = 308726;
+        // const op = 328533;
 
         if (op === null) {
             return history.push('/romaneios');
@@ -98,14 +100,28 @@ export default props => {
         setfaccao(e.target.value);
     }
 
+    /**
+     * Salva a seguecia das grades pelo grade_code
+     * e monta a quantidade total das grades
+     * @param {*} e 
+     */
     function handleGrade(e) {
         const { name, value } = e.target;
         setSeq({ ...seq, [name]: value });
+        grade.map(item => {
+            if (item.gradeCode == value) {
+                setGradeQuantidade(gradeQuantidade + item.quantidade)
+            }
+        });
     }
 
-    function open() {
-        setModal('open');
-        getFaccao();
+    function open() {   
+        if(seq != null || values != null){
+            setModal('open');
+            getFaccao();
+        } else {
+            alert('Selecione grades e seuqncias!');
+        }       
     }
 
     /**
@@ -152,11 +168,14 @@ export default props => {
             'ordem_producao': op,
             'grade': seq,
             'sequencia': values,
-            'valor_faccao': number
+            'valor_faccao': number,
+            'grade_quantidade': gradeQuantidade,
+            'previsao_entrega': entrega
         }
 
         const data_string = JSON.stringify(data_values);
         console.log(data_string)
+
         api.post('/romaneios/gerar-romaneio', data_string).then(({ data }) => {
             alert('Romaneio Gerado com Sucesso!');
             return history.push('/romaneios');
@@ -166,8 +185,20 @@ export default props => {
         });
     }
 
+    /**
+     * Seta o valor para as facções
+     * @param {*} e 
+     */
     const numberChange = e => {
         setNumber(mask(unMask(e.target.value), ['9,99', '99,99', '999,99', '9.999,99', '99.999,99']));
+    }
+
+    /**
+     * Seta a previsão de entraga
+     * @param {*} e 
+     */
+    const previsaoEntrega = e => {
+        setEntrega(mask(e.target.value, ['99/99/9999']));
     }
 
 
@@ -196,7 +227,7 @@ export default props => {
         }
 
     }
-
+    
     return (
         <>
             <Menu />
@@ -257,7 +288,7 @@ export default props => {
                                                         <span className="item-grade">{item.grade}</span>
                                                         <span>{item.quantidade}</span>
                                                     </div>
-                                                    <input type="checkbox" name={item.id} value={item.gradeCode} onChange={handleGrade} />
+                                                    <input type="checkbox" name={item.id} value={item.gradeCode} onClick={handleGrade} />
                                                 </li>
                                             )
                                         })}
@@ -365,6 +396,11 @@ export default props => {
                             <div className="box-group">
                                 <label htmlFor="valor-faccao" className="valor-faccao-label" >Valor Facção R$:</label>
                                 <input type="text" id="valor-faccao" value={number} placeholder="00,00" name="valor_faccao" className="valor-faccao" onChange={numberChange} />
+                            </div>
+
+                            <div className="box-group">
+                                <label htmlFor="valor-faccao" className="valor-faccao-label" >Previsão entrega:</label>
+                                <input type="text" id="valor-faccao" value={entrega} placeholder="00/00/0000" name="previsao_entrega" className="valor-faccao" onChange={previsaoEntrega} />
                             </div>
 
                             <button className="modal-bt-save" onClick={handleGenerate}>Salvar</button>

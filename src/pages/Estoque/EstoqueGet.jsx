@@ -29,7 +29,7 @@ export default props => {
 
         const ordem_producao = parseInt(op);
         if (ordem_producao !== null || ordem_producao !== "") {
-            api.get(`/romaneios/get-romaneio/${ordem_producao}`).then(({ data }) => {
+            api.get(`/romaneios/get-estoque/${ordem_producao}`).then(({ data }) => {
                 setData(data);
                 setRomaneio(data.romaneio);
                 setGrade(data.grade);
