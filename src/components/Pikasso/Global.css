@@ -148,6 +148,15 @@ li {
     padding: 10px 15px;
 }
 
+.form-input-line {
+    width: 100%;
+    margin-left: 10px;
+    border-style: none;
+    border-bottom: 1px solid #555;
+    padding: 10px 15px;
+    color: #111;
+}
+
 .btn-group {
     display: flex;
     align-items: center;

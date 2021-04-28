@@ -19,6 +19,7 @@ export default props => {
 
     const [data, setData] = useState(initialValues);
     const history = useHistory();
+    const [roles, setRoles] = useState(null);
 
     function onChange(e) {
         const { name, value } = e.target;
@@ -32,7 +33,8 @@ export default props => {
             user_name: data.user_name,
             user_email: data.user_email,
             user_pass: data.user_pass,
-            token: '12345'
+            token: '12345',
+            roles: roles
         };
         const data_string = JSON.stringify(data_values);
        
@@ -43,6 +45,11 @@ export default props => {
             alert('Erro ao cadastrar usuario, - '+e);
         });
 
+    }
+
+    function handleRoles(e) {
+        const { value } = e.target;
+        setRoles(value);
     }
 
     // console.log(data);
@@ -80,23 +87,38 @@ export default props => {
                         <form onSubmit={onSubmit} className="box-form">
 
                             <div className="form-group">
-                                <label htmlFor=""><b>Nome Completo:</b></label>
-                                <input type="text" className="form-input" name="user_name" onChange={onChange} required />
+                                <input type="text" placeholder="Nome Completo" className="form-input-line" name="user_name" onChange={onChange} required />
                             </div>
 
                             <div className="form-group">
-                                <label htmlFor=""><b>E-mail:</b></label>
-                                <input type="text" className="form-input" name="user_email" onChange={onChange} required />
+                                <input type="text" placeholder="E-mail" className="form-input-line" name="user_email" onChange={onChange} required />
                             </div>
 
                             <div className="form-group">
-                                <label htmlFor=""><b>Senha:</b></label>
-                                <input type="text" className="form-input" name="user_pass" onChange={onChange} required />
+                                <input type="password" placeholder="Senha" className="form-input-line" name="user_pass" onChange={onChange} required />
                             </div>
 
                             <div className="form-group">
-                                <label htmlFor=""><b>Confirmar Senha:</b></label>
-                                <input type="text" className="form-input" name="user_pass_check" onChange={onChange} required />
+                                <input type="password" placeholder="Confirmar Senha" className="form-input-line" name="user_pass_check" onChange={onChange} required />
+                            </div>
+
+                            <div className="box-selected">
+                                <div className="selected-group">
+                                    <input type="radio" name="roles" id="1" value="1" onClick={handleRoles} />
+                                    <label htmlFor="1">1 - administrador</label>
+                                </div>
+                                <div className="selected-group">
+                                    <input type="radio" name="roles" id="2" value="2" onClick={handleRoles} />
+                                    <label htmlFor="2">2 - Revisão</label>
+                                </div>
+                                <div className="selected-group">
+                                    <input type="radio" name="roles" id="3" value="3" onClick={handleRoles} />
+                                    <label htmlFor="3">3 - Facçoões</label>
+                                </div>
+                                <div className="selected-group">
+                                    <input type="radio" name="roles" id="4" value="4" onClick={handleRoles}/>
+                                    <label htmlFor="4">4 - Transporte</label>
+                                </div>
                             </div>
 
                             <div className="btn-group">

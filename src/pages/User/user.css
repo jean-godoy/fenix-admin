@@ -1,0 +1,15 @@
+.box-selected {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 15px;
+}
+
+.selected-group {
+    padding: 5px;
+}
+
+.selected-group > input{
+    margin-right: 15px;
+}
