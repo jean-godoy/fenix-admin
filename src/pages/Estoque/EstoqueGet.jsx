@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { FiFile } from "react-icons/fi";
 import api from '../../api';
 
@@ -16,6 +16,7 @@ const initialValues = {
 export default props => {
 
     const op = props.match.params.id;
+    const history = useHistory();
 
     const [values, setValues] = useState(initialValues);
     const [data, setData] = useState([]);
@@ -23,7 +24,7 @@ export default props => {
     const [grade, setGrade] = useState([]);
     const [sequencia, setSequencia] = useState([]);
     const [footer, setFooter] = useState([]);
-    
+
 
     useEffect(() => {
 
@@ -41,6 +42,22 @@ export default props => {
             });
         }
     }, []);
+
+    function deleteOP() {
+        const confirm = window.confirm(`Deseja realamente apagar O.P: ${op} ? \n Todos os dados serao removidos permanentemente!`)
+       
+        if (confirm === true) {
+            const ordem_producao = parseInt(op);
+            api.delete(`/romaneios/delete/${ordem_producao}`).then((data) => {
+                console.log('data delete: ', data);
+                alert('Romaneio deletado com sucesso!');
+                history.push('/estoque');
+            }).catch(e => {
+                alert('Ocorreu Algum erro ao deletar o arquivo...');
+                console.log(e);
+            });
+        }
+    }
 
     return (
         <>
@@ -119,7 +136,7 @@ export default props => {
                                         return (
                                             <li key={item.id} className="sequencia-li">
                                                 {/* <input type="checkbox" onChange={({ target:{cheacked} }) => onChange({target:{name:item.sequencia, value:item.referenceCode}})} id="status-1"  checked={1 === values.status} /> */}
-                                                
+
                                                 <div className="box-sequencia">
                                                     <div className="box-sequencia-span maquina"><b>{item.maquina}</b></div>
                                                     <div className="box-sequencia-span sequencia">{item.sequencia}</div>
@@ -138,7 +155,9 @@ export default props => {
                             <span className="atencao"><b>{footer.atencao}</b></span>
                             <span className="total-hora">{footer.totalPecasHora}</span>
                         </div>
-
+                        <div className="box-bt-delete">
+                            <button className="bt-delete" onClick={deleteOP} >Apagar Romaneio</button>
+                        </div>
                     </div>
 
                 </div>

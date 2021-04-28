@@ -20,6 +20,7 @@ export default props => {
 
     useEffect(() => {
         api.get('/estoque/show').then(({ data }) => {
+            console.log(data)
             setData(data);
         }).catch(e => {
             return alert('Nenhum Romaneio Cadastrado!');
@@ -85,34 +86,38 @@ export default props => {
 
                         <div className="box-estoque">
 
-                            <main className="box-estoque-list">
+                            {(data.length === 0) && (
+                                <div className="warning">
+                                    <h3>Nenhum romaneio cadastrado.</h3>
+                                </div>
 
-                                <ul className="romaneio-list-ul">
+                            )}
 
-                                    {data.length && data.map(item => {
+                            {(data.length > 0) && (
+                                <main className="box-estoque-list">
 
-                                        return (
-                                            <li className="box-nav-li" key={item.id}>
-                                                <Link className="box-nav-link" to={`/estoque/get/${item.ordemProducao}`} >
+                                    <ul className="romaneio-list-ul">
 
-                                                    <div className="box-estoque-op">
+                                        {data.length && data.map(item => {
+                                            return (
+                                                <li className="box-nav-li" key={item.id}>
+                                                    <Link className="box-nav-link" to={`/estoque/get/${item.ordemProducao}`} >
+                                                        <div className="box-estoque-op">
+                                                            <span className="ref"> <b>REF: </b> {item.referencia} </span>
+                                                            <span className="ref"> <b>Des. Servicço: </b> {item.descricaoServico} </span>
+                                                            <span className="ref"> <b>O.P: </b> {item.ordemProducao} </span>
+                                                            <span className="ref"> <b>Qnt. Total: </b> {item.quantidade} </span>
+                                                            <span className="ref"> <b>Semana: </b> {item.semana} </span>
+                                                        </div>
+                                                    </Link>
+                                                </li>
+                                            );
+                                        })}
 
-                                                        <span className="ref"> <b>REF: </b> {item.referencia} </span>
-                                                        <span className="ref"> <b>Des. Servicço: </b> {item.descricaoServico} </span>
-                                                        <span className="ref"> <b>O.P: </b> {item.ordemProducao} </span>
-                                                        <span className="ref"> <b>Qnt. Total: </b> {item.quantidade} </span>
-                                                        <span className="ref"> <b>Semana: </b> {item.semana} </span>
+                                    </ul>
 
-                                                    </div>
-                                            
-                                                </Link>
-                                            </li>
-                                        );
-                                    })}
-
-                                </ul>
-
-                            </main>
+                                </main>
+                            )}
 
                         </div>
 

@@ -30,7 +30,7 @@ window.env = {
   "npm_execpath": "/usr/local/lib/node_modules/yarn/bin/yarn.js",
   "npm_package_dependencies_cors": "^2.8.5",
   "npm_package_devDependencies_eslint_plugin_prettier": "^3.3.1",
-  "PATH": "/var/folders/jy/m4rmvnqs45jbbjtbglkxv4km0000gn/T/yarn--1619483234665-0.8508600577177852:/Users/usuario/projects/fenix/fenix-admin/node_modules/.bin:/Users/usuario/.config/yarn/link/node_modules/.bin:/usr/local/libexec/lib/node_modules/npm/bin/node-gyp-bin:/usr/local/lib/node_modules/npm/bin/node-gyp-bin:/usr/local/bin/node_modules/npm/bin/node-gyp-bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin",
+  "PATH": "/var/folders/jy/m4rmvnqs45jbbjtbglkxv4km0000gn/T/yarn--1619561255499-0.4820563164951108:/Users/usuario/projects/fenix/fenix-admin/node_modules/.bin:/Users/usuario/.config/yarn/link/node_modules/.bin:/usr/local/libexec/lib/node_modules/npm/bin/node-gyp-bin:/usr/local/lib/node_modules/npm/bin/node-gyp-bin:/usr/local/bin/node_modules/npm/bin/node-gyp-bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin",
   "npm_config_argv": "{\"remain\":[],\"cooked\":[\"run\",\"dev\"],\"original\":[\"run\",\"dev\"]}",
   "_": "/Users/usuario/projects/fenix/fenix-admin/node_modules/.bin/react-dotenv",
   "npm_package_browserslist_production_1": "not dead",
