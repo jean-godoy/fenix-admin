@@ -26,6 +26,7 @@ export default props => {
             setFaccaoCode(data.faccaoCode);
             setCpf(mask(unMask(data.cpf), ['999.999.999-99']));
             setPhone(mask(unMask(data.phone), ['(99) 9999-9999', '(99) 9 9999-9999']));
+            console.log(data)
         }).catch(e => {
             return alert('Nenhuma Faccção corresponde está id');
         });
@@ -83,19 +84,30 @@ export default props => {
 
                             <div className="box-data-group">
                                 <span className="data-group-span">
-                                    <b>Endereço: </b>{data.street}
-                                </span>
-                            </div>
-
-                            <div className="box-data-group">
-                                <span className="data-group-span">
                                     <b>CPF: </b>{cpf}
                                 </span>
                             </div>
 
                             <div className="box-data-group">
                                 <span className="data-group-span">
-                                    <b>Conta bancária: </b>{data.bank}
+                                    <b>Cidade: </b>{data.cidade}
+                                </span>
+                            </div>
+                            <div className="box-data-group">
+                                <span className="data-group-span">
+                                    <b>Bairro: </b>{data.bairro}
+                                </span>
+                            </div>
+
+                            <div className="box-data-group">
+                                <span className="data-group-span">
+                                    <b>Rua: </b>{data.street}
+                                </span>
+                            </div>
+
+                            <div className="box-data-group">
+                                <span className="data-group-span">
+                                    <b>Número: </b>{data.numero}
                                 </span>
                             </div>
 
