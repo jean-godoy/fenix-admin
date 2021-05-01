@@ -17,7 +17,10 @@ const initialValues = {
     pass_confirm: '',
     faccao_name: '',
     phone: '',
+    cidade: '',
+    bairro: '',
     street: '',
+    numero: '',
     cpf: '',
     bank: '',
     employees: '',
@@ -51,14 +54,17 @@ export default props => {
             user_pass: data.user_pass,
             faccao_name: data.faccao_name,
             phone: unMask(phone),
+            cidade: data.cidade,
+            bairro: data.bairro,
             street: data.street,
+            numero: data.numero,
             cpf: unMask(cpf),
             bank: data.bank,
             employees: data.employees
         }
 
         const data_string = JSON.stringify(data_values);
-       console.log(data_string)
+    //    console.log(data_string)
         api.post('/faccoes/create', data_string).then((res) => {
             alert('Funcionário Cadastrado Com Sucesso!!');
             return history.push('/faccoes');
@@ -110,54 +116,51 @@ export default props => {
                         <form onSubmit={onSubmit} className="box-form">
 
                             <div className="form-group">
-                                <label htmlFor=""><b>Nome de Usuário:</b></label>
-                                <input type="text" className="form-input" name="user_name" onChange={onChange} required />
+                                <input type="text" placeholder="Nome de Usuário" className="form-input-line" name="user_name" onChange={onChange} required />
                             </div>
 
                             <div className="form-group">
-                                <label htmlFor=""><b>E-mail:</b></label>
-                                <input type="text" className="form-input" name="user_email" onChange={onChange} required />
+                                <input type="text" placeholder="E-mail" className="form-input-line" name="user_email" onChange={onChange} required />
                             </div>
 
                             <div className="form-group">
-                                <label htmlFor=""><b>Senha:</b></label>
-                                <input type="text" className="form-input" name="user_pass" onChange={onChange} required />
+                                <input type="password" placeholder="Senha" className="form-input-line" name="user_pass" onChange={onChange} required />
                             </div>
 
                             <div className="form-group">
-                                <label htmlFor=""><b>Confirmar Senha:</b></label>
-                                <input type="text" className="form-input" name="pass_confirm" onChange={onChange} required />
+                                <input type="password" placeholder="Confirmar senha" className="form-input-line" name="pass_confirm" onChange={onChange} required />
                             </div>
 
                             <div className="form-group">
-                                <label htmlFor=""><b>Facção:</b></label>
-                                <input type="text" className="form-input" name="faccao_name" onChange={onChange} required />
+                                <input type="text" placeholder="Telefone" className="form-input-line" name="phone" value={phone} onChange={phoneChange} required />
                             </div>
 
                             <div className="form-group">
-                                <label htmlFor=""><b>Telefone:</b></label>
-                                <input type="text" className="form-input" name="phone" value={phone} onChange={phoneChange} required />
+                                <input type="text" placeholder="Cidade" className="form-input-line" name="cidade" onChange={onChange} required />
                             </div>
 
                             <div className="form-group">
-                                <label htmlFor=""><b>Endereço:</b></label>
-                                <input type="text" className="form-input" name="street" onChange={onChange} required />
+                                <input type="text" placeholder="Bairro" className="form-input-line" name="bairro" onChange={onChange} required />
                             </div>
 
                             <div className="form-group">
-                                <label htmlFor=""><b>CPF:</b></label>
-                                <input type="text" className="form-input" name="cpf" value={cpf} onChange={cpfChange} required />
-                            </div>
-
-
-                            <div className="form-group">
-                                <label htmlFor=""><b>Conta Bancária:</b></label>
-                                <input type="text" className="form-input" name="bank" onChange={onChange} required />
+                                <input type="text" placeholder="Rua" className="form-input-line" name="street" onChange={onChange} required />
                             </div>
 
                             <div className="form-group">
-                                <label htmlFor=""><b>Funcionários:</b></label>
-                                <input type="text" className="form-input" name="employees" onChange={onChange} required />
+                                <input type="text" placeholder="Número" className="form-input-line" name="numero" onChange={onChange} required />
+                            </div>
+
+                            <div className="form-group">
+                                <input type="text" placeholder="CPF" className="form-input-line" name="cpf" value={cpf} onChange={cpfChange} required />
+                            </div>
+
+                            <div className="form-group">
+                                <input type="text" placeholder="Nome facção" className="form-input-line" name="faccao_name" onChange={onChange} required />
+                            </div>
+
+                            <div className="form-group">
+                                <input type="text" placeholder="Quantidade de funcionários" className="form-input-line" name="employees" onChange={onChange} required />
                             </div>
 
                             <div className="btn-group">
