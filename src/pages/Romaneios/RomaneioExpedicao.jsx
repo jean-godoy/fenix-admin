@@ -114,7 +114,7 @@ export default props => {
             }
         });
     }
-
+    console.log('grades', seq)
     function open() {   
         if(seq != null || values != null){
             setModal('open');
@@ -205,7 +205,7 @@ export default props => {
     /**
      * Função que seleciona toda a lista de sequencia operacional
      * Caso a concição seja falsa e seta os values com a lista de Romaneios.
-     * Caso true, desseleciona a lista e seta o values como {}
+     * Caso true, desseleciona a lista e seta o values como null
      */
     function selectAll() {
 
