@@ -19,7 +19,7 @@ export default props => {
 
                     <header><b>Dashboard</b></header>
 
-                    <div className="box-dashboard">
+                    {/* <div className="box-dashboard">
 
                         <div className="box-romaneios-quantidade bs">
                             <div className="dash-header">
@@ -36,7 +36,7 @@ export default props => {
                             </div>
                         </div>
 
-                    </div>
+                    </div> */}
 
                 </div>
                

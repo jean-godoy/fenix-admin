@@ -174,7 +174,7 @@ export default props => {
         }
 
         const data_string = JSON.stringify(data_values);
-        console.log(data_string)
+        // console.log(data_string)
 
         api.post('/romaneios/gerar-romaneio', data_string).then(({ data }) => {
             alert('Romaneio Gerado com Sucesso!');
