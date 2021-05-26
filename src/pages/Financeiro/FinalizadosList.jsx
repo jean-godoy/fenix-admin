@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { FiFolderPlus, FiMoreHorizontal } from "react-icons/fi";
 import api from '../../api';
+import './financeiro.css';
 
 //components
 import Menu from '../../components/Menu/Menu';
@@ -19,7 +20,16 @@ export default props => {
             return alert('Nenhum Romaneio Encontrado!');
         });
     }, []);
-    // console.log(data["ordem_producao"])
+
+    function setStatus(status) {
+        let res = 'Débito';
+        if(status === 1) {
+            res = 'Compensado';
+        }
+        return res;
+    } 
+
+    console.log(data)
     return (
         <>
             <Menu />
@@ -93,16 +103,16 @@ export default props => {
                                 }
 
                                 return (
-                                    <tr>
+                                    <tr className={`status-${item.statusPagamento}`}>
                                         <td className={` ${style}`}>{item.id}</td>
-                                        <td className={`${style}`}>{item.faccao_name}</td>
-                                        <td className={`${style}`}>{item.referencia}</td>
-                                        <td className={`${style}`}>{item.descricao_servico}</td>
-                                        <td className={`${style}`}>{item.ordem_producao}</td>
+                                        <td className={`${style}`}>{item.faccaoNome}</td>
+                                        <td className={`${style}`}>{item.ref}</td>
+                                        <td className={`${style}`}>{item.descServico}</td>
+                                        <td className={`${style}`}>{item.ordemProducao}</td>
                                         <td className={`${style}`}>{item.quantidade}</td>
-                                        <td className={`${style}`}>R$: {Format()}</td>
-                                        <td className={`${style}`}>R$: {Total()}</td>
-                                        <td className={`${style}`}>{item.faccao_status}</td>
+                                        <td className={`${style}`}>R$: {item.preco}</td>
+                                        <td className={`${style}`}>R$: {item.valorTotal}</td>
+                                        <td className={`${style}`}>{setStatus(item.statusPagamento)}</td>
                                         {/* <Link className="table-link" to={`/romaneios/show/${item.romaneio_code}`}><td><FiMoreHorizontal className="box-body-icon" /></td></Link> */}
                                     </tr>
                                 );

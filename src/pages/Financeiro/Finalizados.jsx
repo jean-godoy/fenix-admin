@@ -38,7 +38,7 @@ export default props => {
 
         return <div className="alert">Nehuma NF-e Liberada</div>
     }
-    // console.log(data)
+    console.log(data)
     return (
         <>
             <Menu />

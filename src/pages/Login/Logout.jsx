@@ -22,7 +22,8 @@ export default props => {
       <>
          <Menu />
          <div className="cont-log-out">
-            <header> {data.user_name}, Deseja Realmente Sair?</header>
+            <header>Deseja Realmente Sair?</header>
+            {/* <header> {data.user_name}, Deseja Realmente Sair?</header> */}
 
             <div className="box-bt">
                <Link className="log-bt" to="/">Cancelar</Link>
