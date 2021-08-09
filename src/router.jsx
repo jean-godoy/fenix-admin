@@ -8,73 +8,75 @@ import { isAuthenticated } from './components/auth';
 //pages
 
 //login
-import Login from './pages/Login/Login';
-import Logout from './pages/Login/Logout';
+import Login    from './pages/Login/Login';
+import Logout   from './pages/Login/Logout';
 
 //home
-import Home from './pages/Home/Home';
+import Home         from './pages/Home/Home';
 
 //user
-import User from './pages/User/User'; 
-import UserAdd from './pages/User/UserAdd';
-import UserDetails from './pages/User/UserDetails';
-import UserEdit from './pages/User/UserEdit';
+import User         from './pages/User/User'; 
+import UserAdd      from './pages/User/UserAdd';
+import UserDetails  from './pages/User/UserDetails';
+import UserEdit     from './pages/User/UserEdit';
 
 //employees
-import Employees from './pages/Employees/Employees';
-import EmployeeAdd from './pages/Employees/EmployeeAdd';
-import EmployeeDetails from './pages/Employees/EmployeeDetails';
-import EmployeeEdit from './pages/Employees/EmployeeEdit';
+import Employees        from './pages/Employees/Employees';
+import EmployeeAdd      from './pages/Employees/EmployeeAdd';
+import EmployeeDetails  from './pages/Employees/EmployeeDetails';
+import EmployeeEdit     from './pages/Employees/EmployeeEdit';
 
 //providers
-import Providers from './pages/Providers/Providers';
-import ProviderAdd from './pages/Providers/ProviderAdd';
-import ProviderDetails from './pages/Providers/ProviderDetails';
+import Providers        from './pages/Providers/Providers';
+import ProviderAdd      from './pages/Providers/ProviderAdd';
+import ProviderDetails  from './pages/Providers/ProviderDetails';
   
 //almoxarifado
-import Almoxarifado from './pages/Almoxarifado/Almoxarifado.jsx';
-import AlmoxarifadoAdd from './pages/Almoxarifado/AlmoxarifadoAdd';
-import AlmoxarifadoDetails from './pages/Almoxarifado/AlmoxarifadoDetails';
+import Almoxarifado         from './pages/Almoxarifado/Almoxarifado.jsx';
+import AlmoxarifadoAdd      from './pages/Almoxarifado/AlmoxarifadoAdd';
+import AlmoxarifadoDetails  from './pages/Almoxarifado/AlmoxarifadoDetails';
 
 //facções
-import Faccoes from './pages/Faccoes/Faccaoes';
-import FaccaoAdd from './pages/Faccoes/FaccaoAdd';
-import FaccaoDetails from './pages/Faccoes/FaccaoDetails';
-import DadosBancarios from './pages/Faccoes/DadosBancarios';
-import FormaPagamento from './pages/Faccoes/FormaPagamento';
+import Faccoes          from './pages/Faccoes/Faccaoes';
+import FaccaoAdd        from './pages/Faccoes/FaccaoAdd';
+import FaccaoDetails    from './pages/Faccoes/FaccaoDetails';
+import DadosBancarios   from './pages/Faccoes/DadosBancarios';
+import FormaPagamento   from './pages/Faccoes/FormaPagamento';
 
 //checking
-import Cheking from './pages/Cheking/Checking';
-import CheckAdd from './pages/Cheking/CheckAdd';
-import CheckEdit from './pages/Cheking/CheckDetails';
+import Cheking      from './pages/Cheking/Checking';
+import CheckAdd     from './pages/Cheking/CheckAdd';
+import CheckEdit    from './pages/Cheking/CheckDetails';
 
 //Ordem Procudao
-import OrdemProducao from './pages/OrdemProducao/OrdemProducao';
+import OrdemProducao    from './pages/OrdemProducao/OrdemProducao';
 import OrdemProducaoAdd from './pages/OrdemProducao/OrdemProducaoAdd';
-import GradeAdd from './pages/OrdemProducao/AdinionarGrade';
+import GradeAdd         from './pages/OrdemProducao/AdinionarGrade';
 
 //Romaneios
-import Romaneios from './pages/Romaneios/Romaneios';
-import RomaneioExpedicao from './pages/Romaneios/RomaneioExpedicao';
-import RomaneioId from './pages/Romaneios/RomaneioId';
+import Romaneios            from './pages/Romaneios/Romaneios';
+import RomaneioExpedicao    from './pages/Romaneios/RomaneioExpedicao';
+import RomaneioId           from './pages/Romaneios/RomaneioId';
 
 //Estoque
-import Estoque from './pages/Estoque/Estoque';
-import EstoqueGet from './pages/Estoque/EstoqueGet';
+import Estoque      from './pages/Estoque/Estoque';
+import EstoqueGet   from './pages/Estoque/EstoqueGet';
 
 //configuracoes
 import Config from './pages/Config/Config';
 import Status from './pages/Config/Status';
 
 // Finalização
-import Finalizacao from './pages/Finalizacao/Finalizacao';
-import FaccaoRomaneioDescricao from './pages/Finalizacao/FaccaoRomaneioDescricao';
+import Finalizacao              from './pages/Finalizacao/Finalizacao';
+import FaccaoRomaneioDescricao  from './pages/Finalizacao/FaccaoRomaneioDescricao';
 
 //Financeiro
-import Financeiro from './pages/Financeiro/Financeiro';
-import TabelaPagametos from './pages/Financeiro/TabelaPagamentos';
-import Finalizados from './pages/Financeiro/Finalizados';
-import FinalizadosList from './pages/Financeiro/FinalizadosList';
+import Financeiro           from './pages/Financeiro/Financeiro';
+import TabelaPagametos      from './pages/Financeiro/TabelaPagamentos';
+import Finalizados          from './pages/Financeiro/Finalizados';
+import FinalizadosList      from './pages/Financeiro/FinalizadosList';
+import ContasReceber        from './pages/Financeiro/ContasReceber';
+import ContasPagar          from './pages/Financeiro/ContasPagar';
 
 export default props => {
 
@@ -166,6 +168,8 @@ export default props => {
                     <PrivateRoute exact path="/tabela-pagamentos" component={TabelaPagametos} />
                     <PrivateRoute exact path="/financeiro-finalizados" component={Finalizados} />
                     <PrivateRoute exact path="/financeiro/finalizados-lista/:nfe" component={FinalizadosList} />
+                    <PrivateRoute exact path="/financeiro/contas-a-receber" component={ContasReceber} />
+                    <PrivateRoute exact path="/financeiro/contas-a-pagar" component={ContasPagar} />
 
                 </Switch>
             </BrowserRouter>

@@ -93,14 +93,14 @@ export default props => {
                             <span> > Financeiro</span>
                         </header>
 
-                        <div className="box-month-list">
-                            <div className="month-title">
-                                <h3>Selecione um mês</h3>
-                            </div>
-                            <ButtonList />
+                        <div className="menu-financeiro">
+                            <ul className="ul-menu-financeiro">
+                                <li className="li-menu-financeiro"><Link to="/financeiro/contas-a-pagar" className="link-menu-financeiro">Contas a pagar</Link></li>
+                                <li className="li-menu-financeiro"><Link to="/financeiro/contas-a-receber" className="link-menu-financeiro">Constas a receber</Link></li>
+                                <li className="li-menu-financeiro"><Link className="link-menu-financeiro">Extratos</Link></li>
+                                <li className="li-menu-financeiro"><Link className="link-menu-financeiro">Caixa</Link></li>
+                            </ul>
                         </div>
-
-
                     </div>
 
                 </div>
