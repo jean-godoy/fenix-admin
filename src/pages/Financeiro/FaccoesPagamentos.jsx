@@ -1,44 +1,47 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { FiStopCircle } from "react-icons/fi";
+import { FiTrendingUp } from "react-icons/fi";
 import api from '../../api';
+import './financeiro.css';
+
 
 //components
 import Menu from '../../components/Menu/Menu';
 import Header from '../../components/Header/Header';
+
+//services
+import { teste, Financeiro } from './../../services/financeiro_service';
 
 export default props => {
 
     const [data, setData] = useState([]);
 
     useEffect(() => {
-        api.get('/romaneios/list').then(({ data }) => {
+        api.get('/financeiro/get-payroll-by-nfe').then(({ data }) => {
             setData(data);
-        }).catch(e => {
-            return alert('Nenhum Romaneio Encontrado!');
-        });
+        })
     }, []);
 
-    const List = () => {
+    function List() {
+
         if (data.length) {
             return (
                 <ul className="list-ul">
-                    {data.length && data.map(item => {
+                    {data.map(item => {
                         return (
-                            <li key={item.id} className="list-li">
-                                <Link to={`/financeiro/finalizados-lista/${item.nfe_number}`} className="list-link">
-                                    <strong>NF-e:</strong> {item.nfe_number}
-                                </Link>
+                            <li className="list-li">
+                                <Link to={`/financeiro/pagamentos-referente-nfe/${item.nfe}`} className="list-link">{item.nfe}</Link>
                             </li>
                         );
                     })}
                 </ul>
             );
+        } else {
+            return <div className="message">Nehum pagamento registrado no momento.</div>
         }
-
-        return <div className="alert">Nehuma NF-e Liberada</div>
     }
-    
+
+
     return (
         <>
             <Menu />
@@ -48,7 +51,7 @@ export default props => {
 
                 <div className="box-main">
 
-                    <header>Financeiro</header>
+                    <header>Financeiro </header>
 
                     <nav className="box-nav">
                         <ul className="box-nav-ul">
@@ -57,28 +60,19 @@ export default props => {
                                 <Link className="box-nav-link" to="/financeiro">Financeiro</Link>
                             </li>
 
-                            <li className="box-nav-li">
-                                <Link className="box-nav-link" to="/tabela-pagamentos">Tabela de Pagamentos</Link>
-                            </li>
-
-                            <li className="box-nav-li">
-                                <Link className="box-nav-link" to="/financeiro-finalizados">Finalizados</Link>
-                            </li>
-
                         </ul>
                     </nav>
 
                     <div className="box-body">
 
                         <header>
-                            <FiStopCircle className="box-body-icon" />
-                            <span> > Finalizados - Lista de NF-e</span>
+                            <FiTrendingUp className="box-body-icon" />
+                            <span> > Facções Pagamentos</span>
                         </header>
 
                         <div className="box-list">
                             <List />
                         </div>
-                      
                     </div>
 
                 </div>

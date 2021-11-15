@@ -95,6 +95,7 @@ export default props => {
 
                         <div className="menu-financeiro">
                             <ul className="ul-menu-financeiro">
+                            <li className="li-menu-financeiro"><Link to="/financeiro/faccoes-pagamentos" className="link-menu-financeiro">Facções</Link></li>
                                 <li className="li-menu-financeiro"><Link to="/financeiro/contas-a-pagar" className="link-menu-financeiro">Contas a pagar</Link></li>
                                 <li className="li-menu-financeiro"><Link to="/financeiro/contas-a-receber" className="link-menu-financeiro">Constas a receber</Link></li>
                                 <li className="li-menu-financeiro"><Link className="link-menu-financeiro">Extratos</Link></li>

@@ -63,3 +63,141 @@
     font-size: 1.3rem;
     color: #efefef;
 }
+
+/* ####################################### TABELAS ############################# */
+
+.box-table {
+   
+   
+}
+.tabela-payroll {
+   width: 100%;
+}
+
+.payroll-thead {
+    width: 100%;
+}
+
+.payroll-thead > tr {
+    width: 100%;
+    background-color: red;
+}
+
+.payroll-thead th, td {
+   
+    /* border:solid 1px #000; padding:5px; */
+    font-size: 14px;
+    text-align: start;
+}
+
+.payroll-tbody {
+    
+}
+
+.payroll-tbody > tr, th, td {
+   
+    border:solid 1px #000; padding:5px;
+    background-color: rgb(241, 234, 234);
+    font-size: 12px;
+    text-align: start;
+}
+
+.payroll-tr {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+/* ##################### MODAL ##################### */
+
+.box-modal-payroll {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    min-height: 100vh;
+    background-color: rgba(0,0,0,0.3);
+}
+
+.modal-content {
+    position: relative;
+    margin: 5% auto;
+    display: flex;
+    flex-direction: column;
+    width: 960px;
+    height: 550px;
+    background-color: #efefef;
+    border-radius: 6px;
+}
+
+.show {
+    visibility: hidden;
+}
+
+.bt-close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50px;
+    border-style: none;
+    border: 1px solid black;
+    background-color: tomato;
+    color: #efefef;
+    font-size: 18px;
+}   
+
+.bt-close:hover {
+    cursor: pointer;
+    background-color: red;
+}
+
+.modal-body {
+    margin-top: 20px;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.modal-table {
+    width: 80%;
+}
+
+.modal-table > tr > td {
+    text-align: right;
+    font-size: 16px;
+    padding: 10px
+}
+
+.modal-table tr > th {
+    font-size: 16px;
+    padding: 10px
+} 
+
+.modal-bt-group {
+    margin-top: 20px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+    height: 50px;
+}
+
+.modal-bt-group > button {
+    margin: 10px;
+    min-width: 150px;
+    padding: 10px 15px;
+    border-style: none;
+    background-color: #333;
+    color: #efefef;
+    font-size: 1.1rem;
+}
+
+.modal-bt-group > button:hover {
+    cursor: pointer;
+    background-color: #111;
+}

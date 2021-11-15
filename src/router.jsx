@@ -77,6 +77,8 @@ import Finalizados          from './pages/Financeiro/Finalizados';
 import FinalizadosList      from './pages/Financeiro/FinalizadosList';
 import ContasReceber        from './pages/Financeiro/ContasReceber';
 import ContasPagar          from './pages/Financeiro/ContasPagar';
+import FaccoesPagamentos    from  './pages/Financeiro/FaccoesPagamentos';
+import FaccaoPagamentoByNfe from './pages/Financeiro/FaccaoPagamentoByNfe';
 
 export default props => {
 
@@ -170,6 +172,8 @@ export default props => {
                     <PrivateRoute exact path="/financeiro/finalizados-lista/:nfe" component={FinalizadosList} />
                     <PrivateRoute exact path="/financeiro/contas-a-receber" component={ContasReceber} />
                     <PrivateRoute exact path="/financeiro/contas-a-pagar" component={ContasPagar} />
+                    <PrivateRoute exact path="/financeiro/faccoes-pagamentos" component={FaccoesPagamentos} />
+                    <PrivateRoute exact path="/financeiro/pagamentos-referente-nfe/:nfe"  component={FaccaoPagamentoByNfe} />
 
                 </Switch>
             </BrowserRouter>

@@ -11,7 +11,7 @@ import Header from '../../components/Header/Header';
 export default props => {
 
     const [data, setData] = useState([]);
-    const nfe = props.match.params.nfe
+    const nfe = props.match.params.nfe;
 
     useEffect(() => {
         api.get(`/romaneios/financeiro-finalizados-lista/${nfe}`).then(({ data }) => {
