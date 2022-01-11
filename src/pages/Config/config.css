@@ -3,11 +3,41 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
+    margin-top: 20px;
     padding: 10px 15px;
-    font-size: 20px;
+    font-size: 16px;
 }
 
 .config-link {
+    padding-bottom: 8px;
     text-decoration: none;
     color: #069;
+}
+
+.horizontal-line {
+    width: 100%;
+    margin-top: 10px;
+    border-bottom: 1px solid #333;
+}
+
+.box-roles {
+    display: flex;
+    flex-direction: column;
+    margin-top: 25px;
+    align-items: flex-start;
+}
+
+.box-roles > p {
+    padding-bottom: 8px;
+}
+
+.box-status-romaneio {
+    display: flex;
+    flex-direction: column;
+    margin-top: 25px;
+    align-items: flex-start;
+}
+
+.box-status-romaneio> p {
+    padding-bottom: 8px;
 }

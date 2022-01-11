@@ -120,7 +120,7 @@ export default props => {
                         </div>
 
                         <div className="btn-group">
-                            <Link className="button" to={`/faccao-edit/${id}`}>Editar</Link>
+                            <Link className="button" to={`/faccao-editar/${id}`}>Editar</Link>
                             <Link className="button" to="/faccoes">OK</Link>
                         </div>
 

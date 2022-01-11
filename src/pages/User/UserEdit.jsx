@@ -33,16 +33,14 @@ export default props => {
             user_pass:  user.userPass,
             token: '12345'
         }
-        console.log(data_values)
+       
         const data_string = JSON.stringify(data_values);
 
         api.put(`/users/update/${id_user}`, data_string).then((res) => {
-            console.log(res);
             alert("Usuario: "+user.user_name+", editado com sucesso!");
             return history.push('/user');
         }).catch((e) => {
             alert("Ops.., Erro ao editar usuario..");
-            console.log(e);
         });
 
     }

@@ -20,7 +20,7 @@ export default props => {
             return alert('Nenhuma NF-e Liberada!');
         });
     }, []);
-    
+
     return (
         <>
             <Menu />
@@ -30,17 +30,17 @@ export default props => {
 
                 <div className="box-main">
 
-                    <header>Configurações</header>
-                    <div className="horizontal-line"></div>
-                    {/* <nav className="box-nav">
+                    <header>Regras de Negócio</header>
+                    {/* <div className="horizontal-line"></div> */}
+                    <nav className="box-nav">
                         <ul className="box-nav-ul">
 
                             <li className="box-nav-li">
-                                <Link className="box-nav-link" to="/ordem-producao">Configurações</Link>
+                                <Link className="box-nav-link" to="/configurações">Configurações</Link>
                             </li>
 
                         </ul>
-                    </nav> */}
+                    </nav>
 
                     <div className="">
 
@@ -49,11 +49,17 @@ export default props => {
                             <span> > Menu</span> */}
                         </header>
 
-                       <div className="box-config">
-                            <Link className="config-link" to="/configurações/status-do-romaneio">Status do Romaneio</Link>
-                            <Link className="config-link" to="/configurações/regras-de-negocio">Regras de Negócio</Link>
-                            <Link className="config-link" to="/configurações">Settings</Link>
-                       </div>
+                        <div className="box-config">
+                            <div className="box-text">
+                                As regras de negócio servem para dar permissão de acesso ao usuário cadastrado.
+                                <div className="box-roles">
+                                    <p><b>1 -</b> Administrador - Total acesso ao sistema.</p>
+                                    <p><b>2 -</b> Revisão - Permite acesso a área de Revisão.</p>
+                                    <p><b>3 -</b> Facções - Permite acesso ao aplicativo de facções mediante login e senha.</p>
+                                    <p><b>4 -</b> Trasporte - Permite acesso ao aplicativo de transporte mediante login e senha.</p>
+                                </div>
+                            </div>
+                        </div>
 
                     </div>
 

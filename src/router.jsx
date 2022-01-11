@@ -42,6 +42,7 @@ import FaccaoAdd        from './pages/Faccoes/FaccaoAdd';
 import FaccaoDetails    from './pages/Faccoes/FaccaoDetails';
 import DadosBancarios   from './pages/Faccoes/DadosBancarios';
 import FormaPagamento   from './pages/Faccoes/FormaPagamento';
+import FaccaoEdit       from './pages/Faccoes/FaccaoEdit';
 
 //checking
 import Cheking      from './pages/Cheking/Checking';
@@ -63,8 +64,10 @@ import Estoque      from './pages/Estoque/Estoque';
 import EstoqueGet   from './pages/Estoque/EstoqueGet';
 
 //configuracoes
-import Config from './pages/Config/Config';
-import Status from './pages/Config/Status';
+import Config           from './pages/Config/Config';
+import Status           from './pages/Config/Status';
+import RegrasNegocio    from './pages/Config/RegrasNegocio';
+import StatusRomaneio   from './pages/Config/StatusRomaneio';
 
 // Finalização
 import Finalizacao              from './pages/Finalizacao/Finalizacao';
@@ -136,6 +139,7 @@ export default props => {
                     <PrivateRoute exact path="/faccao-details/:id" component={FaccaoDetails} />
                     <PrivateRoute exact path="/faccoes/dados-bancarios/:faccao_code" component={DadosBancarios} />
                     <PrivateRoute exact path="/faccoes/forma-pagamento/:faccao_code" component={FormaPagamento} />
+                    <PrivateRoute exact path="/faccao-editar/:id" component={FaccaoEdit} />
 
                     {/* Checking Router */}
                     <PrivateRoute exact path="/cheking" component={Cheking} />
@@ -159,8 +163,9 @@ export default props => {
 
                     {/* Configurações */}
                     <PrivateRoute exact path="/configurações" component={Config} />
-                    <PrivateRoute exact path="/configurações/status" component={Status} />
-
+                    <PrivateRoute exact path="/configurações/status-do-romaneio" component={StatusRomaneio} />
+                    <PrivateRoute exact path="/configurações/regras-de-negocio" component={RegrasNegocio} />
+ 
                     {/* finalizacao */}
                     <PrivateRoute exact path="/finalizados" component={Finalizacao} />
                     <PrivateRoute exact path="/finalização/facção-romaneio/:faccao_code/:op" component={FaccaoRomaneioDescricao} />
