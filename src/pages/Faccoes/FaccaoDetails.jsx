@@ -26,7 +26,6 @@ export default props => {
             setFaccaoCode(data.faccaoCode);
             setCpf(mask(unMask(data.cpf), ['999.999.999-99']));
             setPhone(mask(unMask(data.phone), ['(99) 9999-9999', '(99) 9 9999-9999']));
-            console.log(data)
         }).catch(e => {
             return alert('Nenhuma Faccção corresponde está id');
         });
